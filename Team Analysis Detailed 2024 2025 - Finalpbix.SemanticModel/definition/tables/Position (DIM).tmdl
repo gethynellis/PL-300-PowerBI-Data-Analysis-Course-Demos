@@ -1,0 +1,37 @@
+table 'Position (DIM)'
+	lineageTag: 18dd2e2f-803e-4fae-aafe-e77fb3078724
+
+	column 'Position ID'
+		dataType: string
+		lineageTag: 3a19bdc6-4942-4d41-b1f1-8bb6364a75b0
+		summarizeBy: none
+		sourceColumn: Position ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Position Name'
+		dataType: string
+		lineageTag: be230c2b-e42d-4aae-86ed-64504b4de71d
+		summarizeBy: none
+		sourceColumn: Position Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Position (DIM)-128d476b-b4ff-410b-806a-c731f4c7f256' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+				    element_types = Source[element_types],
+				    #"Converted to Table" = Table.FromList(element_types, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"id", "plural_name", "plural_name_short", "singular_name", "singular_name_short", "squad_select", "squad_min_play", "squad_max_play", "ui_shirt_specific", "sub_positions_locked", "element_count"}, {"id", "plural_name", "plural_name_short", "singular_name", "singular_name_short", "squad_select", "squad_min_play", "squad_max_play", "ui_shirt_specific", "sub_positions_locked", "element_count"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded Column1",{{"id", "Position ID"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"Position ID", "plural_name", "plural_name_short", "singular_name", "singular_name_short"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"Position ID", type text}, {"plural_name", type text}, {"plural_name_short", type text}, {"singular_name", type text}, {"singular_name_short", type text}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type",{{"plural_name", "Position Name"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns1",{"plural_name_short", "singular_name", "singular_name_short"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

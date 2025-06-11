@@ -1,0 +1,129 @@
+table 'Club Data (DIM)'
+	lineageTag: 204c6330-1657-45ac-960f-fc261f7d3025
+
+	column 'Team Code'
+		dataType: string
+		lineageTag: 595c9c81-6909-4be4-a1cf-7f51e5fa8625
+		summarizeBy: none
+		sourceColumn: Team Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team ID'
+		dataType: string
+		lineageTag: 64929ca0-cbc7-48c1-81b7-b2e5e7980979
+		summarizeBy: none
+		sourceColumn: Team ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team name'
+		dataType: string
+		lineageTag: d2fb334c-3ca0-46d1-ab67-3129bb1e21f2
+		summarizeBy: none
+		sourceColumn: Team name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation __PBI_SemanticLinks = [{"LinkTarget":{"TableName":"Club Data (DIM)","TableItemName":"Team name (groups) 3","ObjectType":4},"LinkType":"UsedInGroup"},{"LinkTarget":{"TableName":"Club Data (DIM)","TableItemName":"Team name (groups)","ObjectType":4},"LinkType":"UsedInGroup"}]
+
+	column pulse_id
+		dataType: string
+		lineageTag: 0740916a-7cfc-49f9-a712-1297fcf3b5dd
+		summarizeBy: none
+		sourceColumn: pulse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team name (groups) 3' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Club Data (DIM)'[Team name]),
+				"(Blank)",
+				'Club Data (DIM)'[Team name] IN {"Leicester",
+					"Ipswich",
+					"Southampton"},
+				"Ipswich & Leicester & Southampton",
+				"Other"
+			)
+		lineageTag: dad1b0ff-df90-42ee-aca9-eff8cd836a31
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Club Data (DIM)"
+				          }
+				        },
+				        "Property": "Team name"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"c","Entity":"Club Data (DIM)"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Team name"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Ipswich & Leicester & Southampton","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Team name"}}],"Values":[[{"Literal":{"Value":"'Leicester'"}}],[{"Literal":{"Value":"'Ipswich'"}}],[{"Literal":{"Value":"'Southampton'"}}]]}}},{"DisplayName":"Other"}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team name (groups)' =
+			SWITCH(
+				TRUE,
+				ISBLANK('Club Data (DIM)'[Team name]),
+				"(Blank)",
+				'Club Data (DIM)'[Team name] IN {"Liverpool",
+					"Chelsea",
+					"Bournemouth",
+					"Man City"},
+				"Bournemouth & Chelsea & Liverpool & Man City",
+				"Other"
+			)
+		lineageTag: a994ef46-c3b3-47d1-9ae1-a1085537b99e
+		summarizeBy: none
+
+		extendedProperty GroupingMetadata =
+				{
+				  "version": 0,
+				  "groupedColumns": [
+				    {
+				      "Column": {
+				        "Expression": {
+				          "SourceRef": {
+				            "Entity": "Club Data (DIM)"
+				          }
+				        },
+				        "Property": "Team name"
+				      }
+				    }
+				  ]
+				}
+
+		annotation GroupingDesignState = {"Version":0,"Sources":[{"Name":"c","Entity":"Club Data (DIM)"}],"GroupedColumns":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Team name"}}],"GroupItems":[{"DisplayName":"(Blank)","BlankDefaultPlaceholder":true},{"DisplayName":"Bournemouth & Chelsea & Liverpool & Man City","Expression":{"In":{"Expressions":[{"Column":{"Expression":{"SourceRef":{"Source":"c"}},"Property":"Team name"}}],"Values":[[{"Literal":{"Value":"'Liverpool'"}}],[{"Literal":{"Value":"'Chelsea'"}}],[{"Literal":{"Value":"'Bournemouth'"}}],[{"Literal":{"Value":"'Man City'"}}]]}}},{"DisplayName":"Other"}]}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Club Data (DIM)-a2e2192d-6983-418a-b6bf-84f9924af321' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+				    teams = Source[teams],
+				    #"Converted to Table" = Table.FromList(teams, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"code", "draw", "form", "id", "loss", "name", "played", "points", "position", "short_name", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away", "pulse_id"}, {"code", "draw", "form", "id", "loss", "name", "played", "points", "position", "short_name", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away", "pulse_id"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"code", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"draw", "form", "loss", "played", "points", "position", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"id", "Team ID"}, {"code", "Team Code"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Team ID", type text}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"name", "Team name"}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns1",{"short_name"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

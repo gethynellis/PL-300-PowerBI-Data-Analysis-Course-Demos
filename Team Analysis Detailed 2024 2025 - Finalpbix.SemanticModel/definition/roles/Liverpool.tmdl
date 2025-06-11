@@ -1,0 +1,7 @@
+role Liverpool
+	modelPermission: read
+
+	tablePermission 'Club Data (DIM)' = [Team name] == "Liverpool"
+
+	annotation PBI_Id = de24a5131f5d4e9f8c7aa6dd5294073e
+

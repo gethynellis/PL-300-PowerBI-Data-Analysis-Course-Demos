@@ -1,0 +1,100 @@
+table 'Player Data (Dim)'
+	lineageTag: 2e9e04bf-6d59-449c-b205-d29bdadb8238
+
+	column 'Player ID'
+		dataType: string
+		lineageTag: 6d0edf4b-9d7c-4f90-8c93-470464efd73d
+		summarizeBy: none
+		sourceColumn: Player ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_name
+		dataType: string
+		lineageTag: 4a9a18a6-cbdb-4d73-9dc7-031f662461e6
+		summarizeBy: none
+		sourceColumn: first_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column second_name
+		dataType: string
+		lineageTag: 2f24e9e9-576e-4a0e-8133-74d164c9562a
+		summarizeBy: none
+		sourceColumn: second_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column now_cost
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 1d8a10f0-da67-47ab-8ef7-80fec79e5d66
+		summarizeBy: none
+		sourceColumn: now_cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column 'Player Name'
+		dataType: string
+		lineageTag: 72c9ae95-4bad-445f-b956-e2e5a5781491
+		summarizeBy: none
+		sourceColumn: Player Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ep_next
+		dataType: double
+		lineageTag: b5f94af8-2c6d-4ea1-9fcb-6efcb947a50e
+		summarizeBy: none
+		sourceColumn: ep_next
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DemoPLayerName = CONCATENATE( 'Player Data (Dim)'[first_name], 'Player Data (Dim)'[second_name])
+		lineageTag: 51fe6e1c-3f9c-413d-8fcb-36a1d4d35fa7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column NowCostMillions
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 1ce69bd4-28fd-4346-9036-a71391e736a0
+		summarizeBy: none
+		sourceColumn: NowCostMillions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	partition 'Player Data (Dim)-0ce30944-7218-4236-bba5-85c4e4a69127' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+				    elements = Source[elements],
+				    #"Converted to Table" = Table.FromList(elements, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}, {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Expanded Column1",{"ep_next", "first_name", "id", "now_cost", "second_name", "web_name"}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Removed Other Columns",{{"ep_next", type number}}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Changed Type3",{"first_name", "second_name", "id", "now_cost", "web_name"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"id", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"id", "Player ID"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"web_name"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"now_cost", type text}, {"first_name", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type1", "Custom", each Text.Combine ({[first_name], [second_name]}, " ")),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom",{{"Custom", "Player Name"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"now_cost", Currency.Type}, {"Player ID", type text}, {"second_name", type text}, {"Player Name", type text}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type2", "NowCostMillions", each [now_cost]/10),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom1",{{"NowCostMillions", Currency.Type}})
+				in
+				    #"Changed Type4"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

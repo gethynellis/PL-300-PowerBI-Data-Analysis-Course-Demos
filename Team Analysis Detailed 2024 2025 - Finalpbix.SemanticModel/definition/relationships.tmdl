@@ -1,0 +1,52 @@
+relationship a9a35253-e8d8-48a4-8460-7bc327274d67
+	fromColumn: 'Detailed Player Data (Fact)'.'Player ID'
+	toColumn: 'Player Data (Dim)'.'Player ID'
+
+relationship 88835fef-0ca1-41d7-9286-65fa89317e62
+	fromColumn: 'Detailed Player Data (Fact)'.'Position ID'
+	toColumn: 'Position (DIM)'.'Position ID'
+
+relationship 03724931-702c-4c84-b41b-10c72cf28922
+	fromColumn: 'Detailed Player Data (Fact)'.team_code
+	toColumn: 'Club Data (DIM)'.'Team Code'
+
+relationship 4d6f5ca3-3a53-4bf7-b017-e3c19cb6b4e7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Results (DIM)'.kickoff_time
+	toColumn: LocalDateTable_a16e547d-fb6f-4bf8-bf34-2d94cda7a2b8.Date
+
+relationship 398826af-64ab-464b-bfb2-7d5a31b64a33
+	fromColumn: 'Detailed Player Data (Fact)'.'Fixture ID'
+	toColumn: 'Results (DIM)'.'Fixture ID'
+
+relationship 9334b456-968e-43b9-b4c3-a452c2069a2e
+	fromColumn: 'Detailed Player Data (Fact)'.'Opposition Team ID'
+	toColumn: 'Opposition Club Data (DIM)'.'Team ID'
+
+relationship 2d368d3a-1f54-420b-858d-a0b67d487698
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Detailed Player Data (Fact)'.kickoff_time
+	toColumn: LocalDateTable_f2a9968d-b940-46d7-861c-391fad084c1d.Date
+
+relationship c7e83e9f-ae80-456d-992a-b4403c9628aa
+	fromColumn: 'Detailed Player Data (Fact)'.'Kickoff Date'
+	toColumn: DateDim.Date
+
+relationship a07925bc-9577-40fd-a256-eafec2058c64
+	fromColumn: ClubAnalysis.team_code
+	toColumn: ClubAnalysisDim.'Team Code'
+
+relationship f960787a-7df0-4797-a966-11972e765210
+	joinOnDateBehavior: datePartOnly
+	fromColumn: GWDim.'GW Deadline'
+	toColumn: LocalDateTable_ad217237-dc5f-4a13-afdc-804ba9d472e1.Date
+
+relationship 6183d7aa-eac3-0a57-e500-9d70b2acf198
+	fromColumn: 'Detailed Player Data (Fact)'.'Gameweek ID'
+	toColumn: GWDim.'GW ID'
+
+relationship 8c93e821-aa88-4e66-aaa1-abd10ac6eb76
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Date.Date
+	toColumn: LocalDateTable_07a247a4-f0ba-407b-bafa-8557a65ac9f5.Date
+

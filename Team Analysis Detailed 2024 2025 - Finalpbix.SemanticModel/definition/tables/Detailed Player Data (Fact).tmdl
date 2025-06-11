@@ -1,0 +1,654 @@
+table 'Detailed Player Data (Fact)'
+	lineageTag: b1bac7db-f51d-4422-9751-513539dbafa4
+
+	measure 'Team Ranks' =
+			RANKX(
+			ALL('Club Data (DIM)'[Team name])
+			,[Total Player Points])
+		formatString: 0
+		lineageTag: 8fd45f38-8460-4101-85b7-241b76e95d3d
+
+	measure 'Total Player Points' = CALCULATE(SUM('Detailed Player Data (Fact)'[Total Points]))
+		formatString: 0
+		lineageTag: 5846c8cb-93d9-4d49-bc49-b2a753a4064b
+
+	measure 'Average Points' = AVERAGE('Detailed Player Data (Fact)'[Total Points])
+		lineageTag: 152438b7-0594-4509-9061-edaa706aa8be
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure xGDiff = SUM('Detailed Player Data (Fact)'[Goals Scored]) - SUM('Detailed Player Data (Fact)'[expected_goals])
+		lineageTag: d3805302-fc96-4b6c-82aa-a3d07312f40f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure xGDiff% = SUM('Detailed Player Data (Fact)'[Goals Scored]) / SUM('Detailed Player Data (Fact)'[expected_goals])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17d39158-d18d-428e-b8d0-2543e6782d88
+
+	measure 'Total Own Goals Benefited' = ```
+			
+			SUMX(
+			    VALUES('Club Data (DIM)'[Team ID]), 
+			    CALCULATE(
+			        SUM('Detailed Player Data (Fact)'[Own goals]),
+			        TREATAS(VALUES('Club Data (DIM)'[Team ID]), 'Detailed Player Data (Fact)'[Opposition Team ID])
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f2b23a71-378d-43b0-9786-6376949ded68
+
+	measure 'Average Liverpool Points' = CALCULATE(AVERAGE('Detailed Player Data (Fact)'[Total Points]), 'Club Data (DIM)'[Team name] = "Liverpool")
+		lineageTag: 2bf445f6-670f-429c-9578-3b05b7c57bc8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Point Previous Month' = CALCULATE(SUM('Detailed Player Data (Fact)'[Total Points]), PREVIOUSMONTH(DateDim[Date]))
+		formatString: 0
+		lineageTag: c616961b-ab65-4ffa-a502-fecd7633e784
+
+	measure Form =
+			
+			VAR TodayDate = MAX('Detailed Player Data (Fact)'[Kickoff_Time])
+			VAR StartDate = TodayDate - 30
+			
+			RETURN
+			CALCULATE(
+			    AVERAGE('Detailed Player Data (Fact)'[Total Points]),
+			    'Detailed Player Data (Fact)'[kickoff_time] >= StartDate &&
+			    'Detailed Player Data (Fact)'[kickoff_time] <= TodayDate
+			)
+		lineageTag: 83694f45-0ba1-4cb1-980b-d903c1b686b1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Latest Player Price' = ```
+			
+			VAR CurrentGameweekID = 
+			    SELECTEDVALUE('GWDim'[GW ID])
+			    
+			RETURN
+			    CALCULATE(
+			        MAX('Detailed Player Data (Fact)'[Price]), 
+			        GWDim[is_current] = TRUE
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 1872d044-981e-48ab-8ecb-4f7fa0bb4d23
+
+	measure AvgMinutesPlayed = ```
+			
+			VAR PlayersWithMinutes =
+			    FILTER ( 'Detailed Player Data (Fact)', 'Detailed Player Data (Fact)'[Minutes played] > 0 )
+			RETURN
+			    AVERAGEX ( PlayersWithMinutes, 'Detailed Player Data (Fact)'[Minutes played] )
+			
+			```
+		lineageTag: 78581165-4fca-4f91-8a84-0bd50ae86e9c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Measure
+		lineageTag: 9c5dea7f-34dd-4d94-b9e0-cdc6bc7835a0
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure AvgMinutesPerClub = ```
+			
+			VAR TotalMinutesPlayed =
+			    SUM ( 'Detailed Player Data (Fact)'[Minutes played] )
+			
+			VAR PlayersWithMinutes =
+			    CALCULATE (
+			        DISTINCTCOUNT ( 'Detailed Player Data (Fact)'[Player ID] ),
+			        'Detailed Player Data (Fact)'[Minutes played] > 0
+			    )
+			
+			RETURN
+			    DIVIDE ( TotalMinutesPlayed, PlayersWithMinutes, 0 )
+			
+			```
+		lineageTag: 6cee48ab-14f3-4c4d-a11f-a581bfbe4617
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Clean sheets average per Player Name' =
+			
+			AVERAGEX(
+				KEEPFILTERS(VALUES('Player Data (Dim)'[Player Name])),
+				CALCULATE(SUM('Detailed Player Data (Fact)'[Clean sheets]))
+			)
+		formatString: 0
+		lineageTag: 963d35ea-a334-4637-964a-911113b12c0e
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "AveragePerCategory"
+				}
+
+		changedProperty = FormatString
+
+	measure 'No of Players' = DISTINCTCOUNT('Detailed Player Data (Fact)'[Player ID])
+		formatString: 0
+		lineageTag: 9cf0d6eb-2fba-4c34-8b2c-ed260844f98d
+
+	measure 'Form Sum' = ```
+			
+			VAR TodayDate = MAX( 'Detailed Player Data (Fact)'[Kickoff_Time] )
+			VAR StartDate = TodayDate - 30
+			RETURN
+			    CALCULATE(
+			        SUM( 'Detailed Player Data (Fact)'[Total Points] ),
+			        'Detailed Player Data (Fact)'[Kickoff_Time] >= StartDate,
+			        'Detailed Player Data (Fact)'[Kickoff_Time] <= TodayDate
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 4bf1f806-992b-44d4-8e99-f4b14831d7e9
+
+	column Player
+		dataType: int64
+		formatString: 0
+		lineageTag: e6282795-eead-4ede-b41f-8fcc9db73eee
+		summarizeBy: sum
+		sourceColumn: Player
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixture ID'
+		dataType: string
+		lineageTag: a997a600-2bba-4175-943b-cf4ec85f6a78
+		summarizeBy: none
+		sourceColumn: Fixture ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Opposition Team ID'
+		dataType: string
+		lineageTag: 920ee60d-d9ee-4ce3-98af-14314ef7a014
+		summarizeBy: none
+		sourceColumn: Opposition Team ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Points'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bb9b26b-bb95-48c2-937f-4b0701f8c27f
+		summarizeBy: sum
+		sourceColumn: Total Points
+
+		annotation SummarizationSetBy = User
+
+	column was_home
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9edf2786-bbd9-4f46-b3b0-1e66897a6e0e
+		summarizeBy: none
+		sourceColumn: was_home
+
+		annotation SummarizationSetBy = Automatic
+
+	column kickoff_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 122d144c-55d7-4a31-9d21-000d89dc028c
+		summarizeBy: none
+		sourceColumn: kickoff_time
+
+		variation Variation
+			isDefault
+			relationship: 2d368d3a-1f54-420b-858d-a0b67d487698
+			defaultHierarchy: LocalDateTable_f2a9968d-b940-46d7-861c-391fad084c1d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Home Teams Score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e82a2e6-efa1-4ddd-9e16-d37f3545ecb1
+		summarizeBy: sum
+		sourceColumn: Home Teams Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Away Team Score'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd831b05-71b9-47ce-9b55-b675002a9228
+		summarizeBy: sum
+		sourceColumn: Away Team Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gameweek ID'
+		dataType: string
+		lineageTag: 96f6f930-dc24-4fdc-80ab-7cc130581ccc
+		summarizeBy: none
+		sourceColumn: Gameweek ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Minutes played'
+		dataType: int64
+		formatString: 0
+		lineageTag: 836816f3-3cee-43b8-9cce-6f7cf9352b77
+		summarizeBy: sum
+		sourceColumn: Minutes played
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Goals Scored'
+		dataType: int64
+		formatString: 0
+		lineageTag: b266812f-9fe3-4d5a-89aa-26b4189f4ab4
+		summarizeBy: sum
+		sourceColumn: Goals Scored
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Assists made'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5b641f4-9c6a-44d1-a015-f12cdb41f2e9
+		summarizeBy: sum
+		sourceColumn: Assists made
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Clean sheets'
+		dataType: int64
+		formatString: 0
+		lineageTag: 75b44a31-14bf-483f-b79d-645f39760e8e
+		summarizeBy: sum
+		sourceColumn: Clean sheets
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Goals conceded'
+		dataType: int64
+		formatString: 0
+		lineageTag: 14b65607-a673-406b-a7bf-7c3478300639
+		summarizeBy: sum
+		sourceColumn: Goals conceded
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Own goals'
+		dataType: int64
+		formatString: 0
+		lineageTag: c0ec7ef8-cacf-4a91-a2f9-e8d7b0fb871e
+		summarizeBy: sum
+		sourceColumn: Own goals
+
+		annotation SummarizationSetBy = Automatic
+
+	column penalties_saved
+		dataType: int64
+		formatString: 0
+		lineageTag: d17ac6a5-bcf3-440a-83f3-c1a1161dca96
+		summarizeBy: sum
+		sourceColumn: penalties_saved
+
+		annotation SummarizationSetBy = Automatic
+
+	column penalties_missed
+		dataType: int64
+		formatString: 0
+		lineageTag: d921ece8-a38c-48ad-9e41-80a3d92bfaf2
+		summarizeBy: sum
+		sourceColumn: penalties_missed
+
+		annotation SummarizationSetBy = Automatic
+
+	column yellow_cards
+		dataType: int64
+		formatString: 0
+		lineageTag: f40af689-c097-4f8f-9377-e8bdbe1e68d9
+		summarizeBy: sum
+		sourceColumn: yellow_cards
+
+		annotation SummarizationSetBy = Automatic
+
+	column red_cards
+		dataType: int64
+		formatString: 0
+		lineageTag: 01fec3a6-12f0-4400-a1d8-3ba13bdf95ea
+		summarizeBy: sum
+		sourceColumn: red_cards
+
+		annotation SummarizationSetBy = Automatic
+
+	column saves
+		dataType: int64
+		formatString: 0
+		lineageTag: 86fec5f2-671d-451f-9ec1-e80c6c5a373b
+		summarizeBy: sum
+		sourceColumn: saves
+
+		annotation SummarizationSetBy = Automatic
+
+	column bonus
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d6febc0-1a79-4357-a04b-390ae7b37818
+		summarizeBy: sum
+		sourceColumn: bonus
+
+		annotation SummarizationSetBy = Automatic
+
+	column bps
+		dataType: int64
+		formatString: 0
+		lineageTag: d923c96f-b96f-4c48-94ef-cc1587318d35
+		summarizeBy: sum
+		sourceColumn: bps
+
+		annotation SummarizationSetBy = Automatic
+
+	column influence
+		dataType: double
+		lineageTag: ed72d8c6-8131-42d4-9f4c-03b25e2e5f8e
+		summarizeBy: sum
+		sourceColumn: influence
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column creativity
+		dataType: double
+		lineageTag: 4de931ad-c57b-409a-ad74-6ac510bd24df
+		summarizeBy: sum
+		sourceColumn: creativity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column threat
+		dataType: int64
+		formatString: 0
+		lineageTag: e15bc7f1-3c08-45cb-a1a8-924c730f0dfe
+		summarizeBy: sum
+		sourceColumn: threat
+
+		annotation SummarizationSetBy = Automatic
+
+	column ict_index
+		dataType: double
+		lineageTag: 7cb89868-c4a6-49eb-a16d-ce6760a2560d
+		summarizeBy: sum
+		sourceColumn: ict_index
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column starts
+		dataType: int64
+		formatString: 0
+		lineageTag: 83b379a0-0fbc-473a-aac9-91c82e2c40ed
+		summarizeBy: sum
+		sourceColumn: starts
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_goals
+		dataType: double
+		lineageTag: 5748a8d6-04ea-4938-b4e7-7f10a8ef2a47
+		summarizeBy: sum
+		sourceColumn: expected_goals
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column expected_assists
+		dataType: double
+		lineageTag: 02fe75df-ed7b-469c-ac8f-297eafe5a0b8
+		summarizeBy: sum
+		sourceColumn: expected_assists
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column expected_goal_involvements
+		dataType: double
+		lineageTag: f6d5a7c7-2502-47f2-8ed8-a64e401d2692
+		summarizeBy: sum
+		sourceColumn: expected_goal_involvements
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column expected_goals_conceded
+		dataType: double
+		lineageTag: 2bf3e977-8a58-4e5e-ac77-d2968592d8bb
+		summarizeBy: sum
+		sourceColumn: expected_goals_conceded
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column value
+		dataType: int64
+		formatString: 0
+		lineageTag: 441cf87f-2ad6-412e-8361-da6e4b11cb2a
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+	column transfers_balance
+		dataType: int64
+		formatString: 0
+		lineageTag: e77fbf2a-fc21-4714-ad4a-03f164f13670
+		summarizeBy: sum
+		sourceColumn: transfers_balance
+
+		annotation SummarizationSetBy = Automatic
+
+	column selected
+		dataType: int64
+		formatString: 0
+		lineageTag: c992b598-cad6-4f91-bfc8-fe16e0e0b8b8
+		summarizeBy: sum
+		sourceColumn: selected
+
+		annotation SummarizationSetBy = Automatic
+
+	column transfers_in
+		dataType: int64
+		formatString: 0
+		lineageTag: 95e6f75b-4a29-46d9-b786-aee8c2617a71
+		summarizeBy: sum
+		sourceColumn: transfers_in
+
+		annotation SummarizationSetBy = Automatic
+
+	column transfers_out
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b165883-682d-46b0-9dbd-de56060f501e
+		summarizeBy: sum
+		sourceColumn: transfers_out
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Player ID'
+		dataType: string
+		lineageTag: fc5c287a-56cf-4949-b2f2-9a30aadb34c5
+		summarizeBy: none
+		sourceColumn: Player ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Position ID'
+		dataType: string
+		lineageTag: b7fc76f2-70cb-4a59-bef8-ab6e61f0b1ea
+		summarizeBy: none
+		sourceColumn: Position ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_code
+		dataType: string
+		lineageTag: 814db48a-991a-49a0-a4e4-a4958b870a4f
+		summarizeBy: none
+		sourceColumn: team_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kickoff Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 554e6f6c-7ebc-4cf2-b9f5-d3819a364f71
+		summarizeBy: none
+		sourceColumn: Kickoff Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Club Data (DIM).Team ID'
+		dataType: string
+		lineageTag: b12d1c68-d402-40f1-9905-209d73e79af0
+		summarizeBy: none
+		sourceColumn: Club Data (DIM).Team ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Club Data (DIM).Team name'
+		dataType: string
+		lineageTag: 4b0f4022-943b-469a-bfd5-503ad141bbf6
+		summarizeBy: none
+		sourceColumn: Club Data (DIM).Team name
+
+		annotation SummarizationSetBy = Automatic
+
+	column modified
+		dataType: string
+		lineageTag: 613094c5-0c46-42ba-b863-690c8c2df5a9
+		summarizeBy: none
+		sourceColumn: modified
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_win
+		dataType: string
+		lineageTag: ffaa24f9-e9a0-48a3-b854-3363679bfffe
+		summarizeBy: none
+		sourceColumn: mng_win
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_draw
+		dataType: string
+		lineageTag: a5ba2cf4-1544-43de-a358-78c13204c4ae
+		summarizeBy: none
+		sourceColumn: mng_draw
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_loss
+		dataType: string
+		lineageTag: f3dbc6eb-33d6-4b07-b567-55d647ea7f95
+		summarizeBy: none
+		sourceColumn: mng_loss
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_underdog_win
+		dataType: string
+		lineageTag: a8630cf1-71ab-4333-8ec4-6756f6fc5a0a
+		summarizeBy: none
+		sourceColumn: mng_underdog_win
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_underdog_draw
+		dataType: string
+		lineageTag: bde7ba3c-4454-4226-90cf-5628ed67558d
+		summarizeBy: none
+		sourceColumn: mng_underdog_draw
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_clean_sheets
+		dataType: string
+		lineageTag: 8a4aaff1-063b-4573-9980-e73411f0e081
+		summarizeBy: none
+		sourceColumn: mng_clean_sheets
+
+		annotation SummarizationSetBy = Automatic
+
+	column mng_goals_scored
+		dataType: string
+		lineageTag: c2e313b1-6a16-4c8e-a84c-2a2c11578dbd
+		summarizeBy: none
+		sourceColumn: mng_goals_scored
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: decimal
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 7748a6e9-34fa-418c-ab0e-cd361f69f89b
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column xGCDiff = 'Detailed Player Data (Fact)'[Goals Scored] - 'Detailed Player Data (Fact)'[expected_goals]
+		lineageTag: e60d7216-1f51-4927-8820-e8e58cf6a0a7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Detailed Player Data (Fact)-a038f8e5-2e14-478e-b159-9e6ddfcdec92' = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\GethynEllis\OneDrive - GRE Solutions Limited\PHIT Football\Data\PLayerDataLoopTest.csv"),[Delimiter=",", Columns=45, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}}),
+				    #"Removed Top Rows" = Table.Skip(#"Changed Type",1),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"element", Int64.Type}, {"fixture", Int64.Type}, {"opponent_team", Int64.Type}, {"total_points", Int64.Type}, {"was_home", type logical}, {"kickoff_time", type datetime}, {"team_h_score", Int64.Type}, {"team_a_score", Int64.Type}, {"round", Int64.Type}, {"minutes", Int64.Type}, {"goals_scored", Int64.Type}, {"assists", Int64.Type}, {"clean_sheets", Int64.Type}, {"goals_conceded", Int64.Type}, {"own_goals", Int64.Type}, {"penalties_saved", Int64.Type}, {"penalties_missed", Int64.Type}, {"yellow_cards", Int64.Type}, {"red_cards", Int64.Type}, {"saves", Int64.Type}, {"bonus", Int64.Type}, {"bps", Int64.Type}, {"influence", type number}, {"creativity", type number}, {"threat", Int64.Type}, {"ict_index", type number}, {"starts", Int64.Type}, {"expected_goals", type number}, {"expected_assists", type number}, {"expected_goal_involvements", type number}, {"expected_goals_conceded", type number}, {"value", Int64.Type}, {"transfers_balance", Int64.Type}, {"selected", Int64.Type}, {"transfers_in", Int64.Type}, {"transfers_out", Int64.Type}, {"ID", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"ID", "Player ID"}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"element"}, #"Master Data", {"id"}, "Master Data", JoinKind.LeftOuter),
+				    #"Expanded Master Data" = Table.ExpandTableColumn(#"Merged Queries", "Master Data", {"Position ID", "team_code"}, {"Position ID", "team_code"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded Master Data",{{"fixture", "Fixture ID"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Fixture ID", type text}, {"round", type text}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type2",{{"round", "Gameweek ID"}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns2", "kickoff_time", "kickoff_time - Copy"),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Duplicated Column",{{"kickoff_time - Copy", "Kickoff Date"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns3",{{"Kickoff Date", type date}}),
+				    #"Renamed Columns4" = Table.RenameColumns(#"Changed Type3",{{"element", "Player"}, {"total_points", "Total Points"}, {"opponent_team", "Opposition Team ID"}, {"team_h_score", "Home Teams Score"}, {"team_a_score", "Away Team Score"}, {"minutes", "Minutes played"}, {"goals_scored", "Goals Scored"}, {"assists", "Assists made"}, {"clean_sheets", "Clean sheets"}, {"goals_conceded", "Goals conceded"}, {"own_goals", "Own goals"}}),
+				    #"Appended Query" = Table.Combine({#"Renamed Columns4", OwnGoals}),
+				    #"Duplicated Column1" = Table.DuplicateColumn(#"Appended Query", "value", "value - Copy"),
+				    #"Renamed Columns5" = Table.RenameColumns(#"Duplicated Column1",{{"value - Copy", "Price - $Mill"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns5",{"Price - $Mill"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "Price", each ([value]/10) * 1000000),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Custom",{{"Price", Currency.Type}}),
+				    #"Sorted Rows" = Table.Sort(#"Changed Type4",{{"Price", Order.Descending}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each true)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,54 @@
+table 'Opposition Club Data (DIM)'
+	lineageTag: 281fef90-1a07-421d-b00c-a2dff57f2f5b
+
+	column 'Team Code'
+		dataType: string
+		lineageTag: 2d4eedd8-46be-4822-b425-1f975324683e
+		summarizeBy: none
+		sourceColumn: Team Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team ID'
+		dataType: string
+		lineageTag: 810985c2-b4a9-4534-a06d-6de4bb758f22
+		summarizeBy: none
+		sourceColumn: Team ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team name'
+		dataType: string
+		lineageTag: c2faaa7f-967e-43a0-b4d0-77dc6f12decf
+		summarizeBy: none
+		sourceColumn: Team name
+
+		annotation SummarizationSetBy = Automatic
+
+	column pulse_id
+		dataType: string
+		lineageTag: 45d663da-b4ad-4751-87d0-707ae8719297
+		summarizeBy: none
+		sourceColumn: pulse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Opposition Club Data (DIM)' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+				    teams = Source[teams],
+				    #"Converted to Table" = Table.FromList(teams, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"code", "draw", "form", "id", "loss", "name", "played", "points", "position", "short_name", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away", "pulse_id"}, {"code", "draw", "form", "id", "loss", "name", "played", "points", "position", "short_name", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away", "pulse_id"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"code", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"draw", "form", "loss", "played", "points", "position", "strength", "team_division", "unavailable", "win", "strength_overall_home", "strength_overall_away", "strength_attack_home", "strength_attack_away", "strength_defence_home", "strength_defence_away"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"id", "Team ID"}, {"code", "Team Code"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Team ID", type text}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"name", "Team name"}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns1",{"short_name"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_ResultType = Table
+

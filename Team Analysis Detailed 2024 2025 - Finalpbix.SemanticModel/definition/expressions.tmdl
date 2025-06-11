@@ -1,0 +1,83 @@
+expression 'Master Data' =
+		let
+		    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+		    elements = Source[elements],
+		    #"Converted to Table" = Table.FromList(elements, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}, {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Expanded Column1",{{"element_type", "Position ID"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Position ID", type text}}),
+		    #"Sorted Rows" = Table.Sort(#"Changed Type",{{"expected_goals", Order.Descending}})
+		in
+		    #"Sorted Rows"
+	lineageTag: b4266df1-72e9-48d7-969b-fbe692d466c7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Fixtures Master Data' =
+		let
+		    Source = Json.Document(Web.Contents(" https://fantasy.premierleague.com/api/fixtures/")),
+		    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"}, {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"})
+		in
+		    #"Expanded Column1"
+	lineageTag: ae7dedb0-5be9-4f58-b087-8f095253e1d4
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Master Data (2)' =
+		let
+		    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+		    elements = Source[elements],
+		    #"Converted to Table" = Table.FromList(elements, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}, {"chance_of_playing_next_round", "chance_of_playing_this_round", "code", "cost_change_event", "cost_change_event_fall", "cost_change_start", "cost_change_start_fall", "dreamteam_count", "element_type", "ep_next", "ep_this", "event_points", "first_name", "form", "id", "in_dreamteam", "news", "news_added", "now_cost", "photo", "points_per_game", "second_name", "selected_by_percent", "special", "squad_number", "status", "team", "team_code", "total_points", "transfers_in", "transfers_in_event", "transfers_out", "transfers_out_event", "value_form", "value_season", "web_name", "minutes", "goals_scored", "assists", "clean_sheets", "goals_conceded", "own_goals", "penalties_saved", "penalties_missed", "yellow_cards", "red_cards", "saves", "bonus", "bps", "influence", "creativity", "threat", "ict_index", "starts", "expected_goals", "expected_assists", "expected_goal_involvements", "expected_goals_conceded", "influence_rank", "influence_rank_type", "creativity_rank", "creativity_rank_type", "threat_rank", "threat_rank_type", "ict_index_rank", "ict_index_rank_type", "corners_and_indirect_freekicks_order", "corners_and_indirect_freekicks_text", "direct_freekicks_order", "direct_freekicks_text", "penalties_order", "penalties_text", "expected_goals_per_90", "saves_per_90", "expected_assists_per_90", "expected_goal_involvements_per_90", "expected_goals_conceded_per_90", "goals_conceded_per_90", "now_cost_rank", "now_cost_rank_type", "form_rank", "form_rank_type", "points_per_game_rank", "points_per_game_rank_type", "selected_rank", "selected_rank_type", "starts_per_90", "clean_sheets_per_90"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Expanded Column1",{{"element_type", "Position ID"}}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Position ID", type text}}),
+		    #"Sorted Rows" = Table.Sort(#"Changed Type",{{"expected_goals", Order.Descending}})
+		in
+		    #"Sorted Rows"
+	lineageTag: 178ba22d-0348-4a36-94b7-8335448a90a1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression OwnGoals =
+		let
+		    Source = Csv.Document(File.Contents("C:\Users\GethynEllis\OneDrive - GRE Solutions Limited\PHIT Football\Data\PLayerDataLoopTest.csv"),[Delimiter=",", Columns=45, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}}),
+		    #"Removed Top Rows" = Table.Skip(#"Changed Type",1),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"element", Int64.Type}, {"fixture", Int64.Type}, {"opponent_team", Int64.Type}, {"total_points", Int64.Type}, {"was_home", type logical}, {"kickoff_time", type datetime}, {"team_h_score", Int64.Type}, {"team_a_score", Int64.Type}, {"round", Int64.Type}, {"minutes", Int64.Type}, {"goals_scored", Int64.Type}, {"assists", Int64.Type}, {"clean_sheets", Int64.Type}, {"goals_conceded", Int64.Type}, {"own_goals", Int64.Type}, {"penalties_saved", Int64.Type}, {"penalties_missed", Int64.Type}, {"yellow_cards", Int64.Type}, {"red_cards", Int64.Type}, {"saves", Int64.Type}, {"bonus", Int64.Type}, {"bps", Int64.Type}, {"influence", type number}, {"creativity", type number}, {"threat", Int64.Type}, {"ict_index", type number}, {"starts", Int64.Type}, {"expected_goals", type number}, {"expected_assists", type number}, {"expected_goal_involvements", type number}, {"expected_goals_conceded", type number}, {"value", Int64.Type}, {"transfers_balance", Int64.Type}, {"selected", Int64.Type}, {"transfers_in", Int64.Type}, {"transfers_out", Int64.Type}, {"ID", type text}}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Changed Type1",{{"ID", "Player ID"}}),
+		    #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"element"}, #"Master Data (2)", {"id"}, "Master Data", JoinKind.LeftOuter),
+		    #"Expanded Master Data" = Table.ExpandTableColumn(#"Merged Queries", "Master Data", {"Position ID", "team_code"}, {"Position ID", "team_code"}),
+		    #"Renamed Columns1" = Table.RenameColumns(#"Expanded Master Data",{{"fixture", "Fixture ID"}}),
+		    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Fixture ID", type text}, {"round", type text}}),
+		    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type2",{{"round", "Gameweek ID"}}),
+		    #"Duplicated Column" = Table.DuplicateColumn(#"Renamed Columns2", "kickoff_time", "kickoff_time - Copy"),
+		    #"Renamed Columns3" = Table.RenameColumns(#"Duplicated Column",{{"kickoff_time - Copy", "Kickoff Date"}}),
+		    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns3",{{"Kickoff Date", type date}}),
+		    #"Renamed Columns4" = Table.RenameColumns(#"Changed Type3",{{"element", "Player"}, {"total_points", "Total Points"}, {"opponent_team", "Opposition Team ID"}, {"team_h_score", "Home Teams Score"}, {"team_a_score", "Away Team Score"}, {"minutes", "Minutes played"}, {"goals_scored", "Goals Scored"}, {"assists", "Assists made"}, {"clean_sheets", "Clean sheets"}, {"goals_conceded", "Goals conceded"}, {"own_goals", "Own goals"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns4",{"Player", "Fixture ID", "Opposition Team ID", "Total Points", "Gameweek ID", "Goals Scored", "Own goals", "Player ID", "Position ID", "team_code"}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Removed Other Columns",{"Total Points"}),
+		    #"Filtered Rows" = Table.SelectRows(#"Removed Columns", each [Own goals] >= 1),
+		    #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"Goals Scored"}),
+		    #"Changed Type4" = Table.TransformColumnTypes(#"Removed Columns1",{{"team_code", type text}, {"Opposition Team ID", type text}}),
+		    #"Merged Queries1" = Table.NestedJoin(#"Changed Type4", {"Opposition Team ID"}, #"Club Data (DIM)", {"Team ID"}, "Club Data (DIM)", JoinKind.LeftOuter),
+		    #"Expanded Club Data (DIM)" = Table.ExpandTableColumn(#"Merged Queries1", "Club Data (DIM)", {"Team Code", "Team ID", "Team name", "pulse_id"}, {"Club Data (DIM).Team Code", "Club Data (DIM).Team ID", "Club Data (DIM).Team name", "Club Data (DIM).pulse_id"}),
+		    #"Removed Columns2" = Table.RemoveColumns(#"Expanded Club Data (DIM)",{"team_code"}),
+		    #"Renamed Columns5" = Table.RenameColumns(#"Removed Columns2",{{"Club Data (DIM).Team Code", "Team Code"}}),
+		    #"Removed Columns3" = Table.RemoveColumns(#"Renamed Columns5",{"Club Data (DIM).pulse_id"}),
+		    #"Renamed Columns6" = Table.RenameColumns(#"Removed Columns3",{{"Own goals", "Goals Scored"}, {"Team Code", "team_code"}})
+		in
+		    #"Renamed Columns6"
+	lineageTag: e8955dd5-bb4d-40bd-8657-128dbf06feb2
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

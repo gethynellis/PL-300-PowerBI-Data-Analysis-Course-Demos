@@ -1,0 +1,95 @@
+table GWDim
+	lineageTag: a8f33ca6-a22e-4424-99fb-ba200a3fe7f9
+
+	column 'GW ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cbfd365-d261-44b0-8909-d12d48ecc44f
+		summarizeBy: none
+		sourceColumn: GW ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GW Name'
+		dataType: string
+		lineageTag: 1f5952b4-887a-4548-b816-6b2232d26b6b
+		summarizeBy: none
+		sourceColumn: GW Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GW Deadline'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bac01ecc-3df0-4c1d-b9f4-dc4dad00f1af
+		summarizeBy: none
+		sourceColumn: GW Deadline
+
+		variation Variation
+			isDefault
+			relationship: f960787a-7df0-4797-a966-11972e765210
+			defaultHierarchy: LocalDateTable_ad217237-dc5f-4a13-afdc-804ba9d472e1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Finished
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ac7c4f5a-c536-44c8-ae69-cd73ef4dc861
+		summarizeBy: none
+		sourceColumn: Finished
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_previous
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e6c3a8cd-43cf-4f37-9505-7898746d3d19
+		summarizeBy: none
+		sourceColumn: is_previous
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 13d71eba-1141-4cb5-a49d-c1fd52ffa0b6
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_next
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 227d2697-891f-4d17-abc8-2fc27c7b2cb0
+		summarizeBy: none
+		sourceColumn: is_next
+
+		annotation SummarizationSetBy = Automatic
+
+	partition GWDim = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents("https://fantasy.premierleague.com/api/bootstrap-static/")),
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Expanded events" = Table.ExpandListColumn(#"Converted to Table", "events"),
+				    #"Expanded events1" = Table.ExpandRecordColumn(#"Expanded events", "events", {"id", "name", "deadline_time", "release_time", "average_entry_score", "finished", "data_checked", "highest_scoring_entry", "deadline_time_epoch", "deadline_time_game_offset", "highest_score", "is_previous", "is_current", "is_next", "cup_leagues_created", "h2h_ko_matches_created", "can_enter", "can_manage", "released", "ranked_count", "overrides", "chip_plays", "most_selected", "most_transferred_in", "top_element", "top_element_info", "transfers_made", "most_captained", "most_vice_captained"}, {"events.id", "events.name", "events.deadline_time", "events.release_time", "events.average_entry_score", "events.finished", "events.data_checked", "events.highest_scoring_entry", "events.deadline_time_epoch", "events.deadline_time_game_offset", "events.highest_score", "events.is_previous", "events.is_current", "events.is_next", "events.cup_leagues_created", "events.h2h_ko_matches_created", "events.can_enter", "events.can_manage", "events.released", "events.ranked_count", "events.overrides", "events.chip_plays", "events.most_selected", "events.most_transferred_in", "events.top_element", "events.top_element_info", "events.transfers_made", "events.most_captained", "events.most_vice_captained"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Expanded events1",{"events.id", "events.name", "events.deadline_time", "events.finished", "events.is_previous", "events.is_current", "events.is_next"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"events.deadline_time", type datetime}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"events.id", "GW ID"}, {"events.name", "GW Name"}, {"events.deadline_time", "GW Deadline"}, {"events.finished", "Finished"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Finished", type logical}}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Changed Type1",{{"events.is_previous", "is_previous"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"is_previous", type logical}, {"events.is_current", type logical}}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Changed Type2",{{"events.is_current", "is_current"}, {"events.is_next", "is_next"}}),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Renamed Columns2",{{"is_next", type logical}, {"GW ID", type date}}),
+				    #"Sorted Rows" = Table.Sort(#"Changed Type3",{{"GW Deadline", Order.Ascending}}),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Sorted Rows",{{"GW ID", Int64.Type}})
+				in
+				    #"Changed Type4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

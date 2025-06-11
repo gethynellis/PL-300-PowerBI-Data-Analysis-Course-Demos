@@ -1,0 +1,192 @@
+table 'Results (DIM)'
+	lineageTag: b0ce8936-6a93-4f43-884c-3c317fc8a48a
+
+	measure 'Number of Results' = COUNTROWS('Results (DIM)')
+		formatString: 0
+		lineageTag: a8ef84a1-4326-44c3-a648-3580b8cc04b3
+
+	column code
+		dataType: int64
+		formatString: 0
+		lineageTag: 61179276-b439-490b-b4e6-f38d63135365
+		summarizeBy: sum
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column GameWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 22bb428f-8cfe-48de-b414-a3504be8f02a
+		summarizeBy: none
+		sourceColumn: GameWeek
+
+		annotation SummarizationSetBy = User
+
+	column finished
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9173e79f-5806-415f-8ac1-cf7d988e4734
+		summarizeBy: none
+		sourceColumn: finished
+
+		annotation SummarizationSetBy = Automatic
+
+	column finished_provisional
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f66aadb7-a92c-49e3-91d7-2774db3549db
+		summarizeBy: none
+		sourceColumn: finished_provisional
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fixture ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 736f017a-3c09-4abe-975a-e028158b81d2
+		summarizeBy: none
+		sourceColumn: Fixture ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column kickoff_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a19498b6-a674-45d1-9c11-ab6fd92459fa
+		summarizeBy: none
+		sourceColumn: kickoff_time
+
+		variation Variation
+			isDefault
+			relationship: 4d6f5ca3-3a53-4bf7-b017-e3c19cb6b4e7
+			defaultHierarchy: LocalDateTable_a16e547d-fb6f-4bf8-bf34-2d94cda7a2b8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a
+		dataType: string
+		lineageTag: a84fc18e-3f53-494f-a42b-61a4b0bd50aa
+		summarizeBy: none
+		sourceColumn: team_a
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 63bd1720-18d3-4737-b5d1-dfa8ebdfecb3
+		summarizeBy: sum
+		sourceColumn: team_a_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h
+		dataType: string
+		lineageTag: 32ffb351-afed-4f9c-b953-c6ea9b8a318a
+		summarizeBy: none
+		sourceColumn: team_h
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h_score
+		dataType: int64
+		formatString: 0
+		lineageTag: af8503f3-14f6-4c61-9656-1566f637f84a
+		summarizeBy: sum
+		sourceColumn: team_h_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h_difficulty
+		dataType: int64
+		formatString: 0
+		lineageTag: 35a14dd9-cdfa-438d-ba62-4d5627babcc1
+		summarizeBy: sum
+		sourceColumn: team_h_difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a_difficulty
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e70d4dd-54df-47e4-8ec5-8438dedef7b9
+		summarizeBy: sum
+		sourceColumn: team_a_difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column pulse_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 313b0ca8-3f40-44a0-827c-a3c8e614a2a5
+		summarizeBy: sum
+		sourceColumn: pulse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Result
+		dataType: string
+		lineageTag: 090183b8-0c05-4de7-b512-fb52197b565c
+		summarizeBy: none
+		sourceColumn: Result
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Expected Result'
+		dataType: string
+		lineageTag: 399b25a6-5647-42f3-bed5-3b894d13da4f
+		summarizeBy: none
+		sourceColumn: Expected Result
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exceptional Result'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5b06904d-31c6-403b-80ad-0cf2e43b0bd6
+		summarizeBy: none
+		sourceColumn: Exceptional Result
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'kickoff_time - Copy'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 79fbba47-99a8-4e14-ae3d-2794c4d71e2a
+		summarizeBy: none
+		sourceColumn: kickoff_time - Copy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition 'Results (DIM)-72dbf123-0342-4565-8aef-3c6b0923cb85' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(" https://fantasy.premierleague.com/api/fixtures/")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"}, {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"id", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"id", "Fixture ID"}, {"event", "GameWeek"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"code", "finished", "finished_provisional", "Fixture ID", "GameWeek", "kickoff_time", "pulse_id", "stats", "team_a", "team_a_difficulty", "team_a_score", "team_h", "team_h_difficulty", "team_h_score"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Removed Other Columns",{"stats"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"kickoff_time", type datetime}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type1", each ([finished] = true)),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Filtered Rows",{{"finished", type logical}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Changed Type4",{{"finished", type logical}, {"code", Int64.Type}, {"finished_provisional", type logical}, {"Fixture ID", Int64.Type}, {"GameWeek", Int64.Type}, {"pulse_id", Int64.Type}, {"team_a", type text}, {"team_a_difficulty", Int64.Type}, {"team_a_score", Int64.Type}, {"team_h", type text}, {"team_h_difficulty", Int64.Type}, {"team_h_score", Int64.Type}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type2", "Result", each if [team_a_score] = [team_h_score] then "Draw" else if [team_a_score] > [team_h_score] then "Away Win" else if [team_a_score] < [team_h_score] then "Home Win" else null),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "Expected Result", each if [team_a_difficulty] > [team_h_difficulty] then "Away Win" else if [team_a_difficulty] < [team_h_difficulty] then "Home Win" else if [team_a_difficulty] = [team_h_difficulty] then "Draw" else null),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Conditional Column1",{{"Expected Result", type text}}),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Changed Type3", "Exceptional Result", each if [Result] <> [Expected Result] then true else false),
+				    #"Changed Type5" = Table.TransformColumnTypes(#"Added Conditional Column2",{{"Exceptional Result", type logical}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type5", "kickoff_time", "kickoff_time - Copy"),
+				    #"Changed Type6" = Table.TransformColumnTypes(#"Duplicated Column",{{"kickoff_time - Copy", type time}})
+				in
+				    #"Changed Type6"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

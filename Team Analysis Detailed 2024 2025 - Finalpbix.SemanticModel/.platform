@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Team Analysis Detailed 2024 2025 - Finalpbix"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "159b73e8-2bd8-bd38-4acd-1aa1b2fdfa3d"
+  }
+}

@@ -1,0 +1,100 @@
+table DateDim
+	lineageTag: bce35e2e-d3d1-44d5-84cb-0a8c1d1721ca
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 7ee16430-1b24-47b3-a4c3-e3f7432a1893
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ba3697c5-cb00-4dfb-85a7-053b05963503
+		summarizeBy: none
+		sourceColumn: DateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = "CY" & YEAR('DateDim'[Date])
+		lineageTag: b120ca57-171c-4860-a317-7f7ccabf5f8f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('DateDim'[Date], "YYYY-MM")
+		lineageTag: 4a2addba-49fe-49c1-a43d-511acd708781
+		summarizeBy: none
+		sortByColumn: 'Month Order'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number' = MONTH([Date])
+		formatString: 0
+		lineageTag: 36fd06e0-b0f7-41ad-8d43-017bc443cc2b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Order' = Year('DateDim'[Date])*100 + MONTH('DateDim'[Date])
+		formatString: 0
+		lineageTag: 12592962-ab8e-466d-9efe-ef6e928fe26c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column GameWeekNumber
+		dataType: string
+		lineageTag: 88293c64-aba5-4784-b7db-9561de2b6ed4
+		summarizeBy: none
+		sourceColumn: GameWeekNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Month Hierarchy'
+		lineageTag: 1c85ad8d-ea76-48b9-8e4b-fcf1dccd36ed
+
+		level Month
+			lineageTag: 113c78b2-9446-4ff8-8bb0-5c4b220cceed
+			column: Month
+
+	partition DateDim = m
+		mode: import
+		source = ```
+				let
+				    Source = {Number.From(#date(2023,8,1))..Number.From(#date(2025,6,30))},
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{{"Column1", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Dim"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns",{{"Dim", type date}}),
+				    #"Duplicated Column" = Table.DuplicateColumn(#"Changed Type1", "Dim", "Dim - Copy"),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Duplicated Column",{{"Dim", "Date"}, {"Dim - Copy", "DateTime"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns1",{{"DateTime", type datetime}}),
+				    #"Added Custom1" = Table.AddColumn(#"Changed Type2", "Custom", each 
+				    let 
+				        FilteredGW = Table.SelectRows(GWDim, (row) => row[GW Deadline] > _[DateTime])
+				    in 
+				        if Table.IsEmpty(FilteredGW) 
+				        then List.Max(GWDim[GW ID]) 
+				        else List.Min(FilteredGW[GW ID])
+				),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom1", each true),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Filtered Rows",{{"Custom", "GameWeekNumber"}}),
+				    #"Filtered Rows1" = Table.SelectRows(#"Renamed Columns3", each true)
+				in
+				    #"Filtered Rows1"
+				```
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

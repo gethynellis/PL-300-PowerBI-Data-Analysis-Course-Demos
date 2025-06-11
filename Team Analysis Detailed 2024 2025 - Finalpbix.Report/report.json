@@ -1,0 +1,673 @@
+{
+  "config": "{\"version\":\"5.54\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY22SU11\",\"version\":\"5.40\",\"type\":2}},\"activeSectionIndex\":14,\"bookmarks\":[{\"displayName\":\"Players\",\"name\":\"b027984a10813b75682e\",\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"8cd3f0e51c294b033a51\",\"sections\":{\"8cd3f0e51c294b033a51\":{\"filters\":{\"byExpr\":[{\"name\":\"4c6e6d9d2ca7142fd6c5\",\"type\":\"Categorical\",\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Forwards'\"}}]]}}}]},\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"howCreated\":1}]},\"visualContainers\":{\"86871744fa5159118b6c\":{\"filters\":{\"byExpr\":[{\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Goals Scored\"}},\"Function\":0}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"expected_goals\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"tableEx\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}}}]}},\"dbb2cc7a078a9a8c0ba0\":{\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{}}}}}},\"objects\":{\"merge\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}},\"options\":{\"targetVisualNames\":[],\"suppressData\":true,\"applyOnlyToTargetVisuals\":true}},{\"displayName\":\"Clubs\",\"name\":\"80c0f1b07135c89e4478\",\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"8cd3f0e51c294b033a51\",\"sections\":{\"8cd3f0e51c294b033a51\":{\"filters\":{\"byExpr\":[{\"name\":\"4c6e6d9d2ca7142fd6c5\",\"type\":\"Categorical\",\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Forwards'\"}}]]}}}]},\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"howCreated\":1}]},\"visualContainers\":{\"86871744fa5159118b6c\":{\"filters\":{\"byExpr\":[{\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Goals Scored\"}},\"Function\":0}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"expected_goals\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"tableEx\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}}}],\"display\":{\"mode\":\"hidden\"}}},\"dbb2cc7a078a9a8c0ba0\":{\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{}}}}}},\"objects\":{\"merge\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}},\"options\":{\"targetVisualNames\":[\"90d045685463e53b6e76\"],\"suppressData\":true}}],\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "publicCustomVisuals": [
+    "boxandwhiskerwithpoints3B3DF5C11B683E5DB4E630DD7899B035",
+    "ChicletSlicer1448559807354"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY22SU11",
+            "path": "BaseThemes/CY22SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Forn Players",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"0db5400095386da47d0e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Defenders'\"}}],[{\"Literal\":{\"Value\":\"'Forwards'\"}}],[{\"Literal\":{\"Value\":\"'Goalkeepers'\"}}],[{\"Literal\":{\"Value\":\"'Midfielders'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "1d6af9e38e646c0007d5",
+      "ordinal": 23,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"31fd720b5186e02e78bb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":734.5309381237524,\"y\":14.05189620758483,\"z\":1000,\"width\":479.0419161676647,\"height\":412.6147704590818,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Detailed Player Data (Fact).Form Sum\"},{\"queryRef\":\"Detailed Player Data (Fact).Total Player Points\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form Sum\"},\"Name\":\"Detailed Player Data (Fact).Form Sum\",\"NativeReferenceName\":\"Form Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Player Points\"},\"Name\":\"Detailed Player Data (Fact).Total Player Points\",\"NativeReferenceName\":\"Total Player Points\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Player Points\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form Sum\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 412.61,
+          "width": 479.04,
+          "x": 734.53,
+          "y": 14.05,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"9b013628ea58c12b14bd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.219560878243513,\"y\":0,\"z\":0,\"width\":479.0419161676647,\"height\":412.6147704590818,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineStackedColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Player Data (Dim).Player Name\",\"active\":true}],\"Y2\":[{\"queryRef\":\"Detailed Player Data (Fact).Form Sum\"}],\"Y\":[{\"queryRef\":\"Detailed Player Data (Fact).Total Player Points\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form Sum\"},\"Name\":\"Detailed Player Data (Fact).Form Sum\",\"NativeReferenceName\":\"Form Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Player Points\"},\"Name\":\"Detailed Player Data (Fact).Total Player Points\",\"NativeReferenceName\":\"Total Player Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Player Points\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form Sum\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 412.61,
+          "width": 479.04,
+          "x": 10.22,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "transfer value",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "26005299379d10ce5198",
+      "ordinal": 16,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"494788693ba73bd12961\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.715370018975332,\"y\":0,\"z\":0,\"width\":608.8298545224542,\"height\":503.5800126502214,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Player Data (Dim).Player Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":\"2b3347f816036d346772\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Diogo Teixeira da Silva'\"}}],[{\"Literal\":{\"Value\":\"'Jack Grealish'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 503.58,
+          "width": 608.83,
+          "x": 9.72,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e08f93bf31734b1c0435\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640.6948968512487,\"y\":56.98154180238871,\"z\":1000,\"width\":608.7296416938111,\"height\":500.32573289902285,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Player Data (Dim).Player Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\"}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Diogo Teixeira da Silva'\"}}],[{\"Literal\":{\"Value\":\"'Jack Grealish'\"}}]]}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"axisType\":{\"expr\":{\"Literal\":{\"Value\":\"'Categorical'\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'step'\"}}},\"areaShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'dashed'\"}}}}}],\"valueAxis\":[{\"properties\":{\"secShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"secShowAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"start\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}},\"secStart\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"secEnd\":{\"expr\":{\"Literal\":{\"Value\":\"88D\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#B3B3B3'\"}}}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Total Points)\"}}]}}}",
+          "filters": "[{\"name\":\"f7645a83ba330cba76e0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Results (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Diogo Teixeira da Silva'\"}}],[{\"Literal\":{\"Value\":\"'Jack Grealish'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Total Points\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 500.33,
+          "width": 608.73,
+          "x": 640.69,
+          "y": 56.98,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Club Expected Goals",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterfb43c4a42c17e7133ca7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Club Data (DIM)\"}},\"Property\":\"Team name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "527c562d05144b9a7e99",
+      "ordinal": 15,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"cb8f6521fd491fe9178a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.219560878243513,\"y\":0,\"z\":0,\"width\":410.05988023952096,\"height\":546.746506986028}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{}}}",
+          "filters": "[]",
+          "height": 546.75,
+          "width": 410.06,
+          "x": 10.22,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Managers",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter61af6c2fa216064f5419\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Managers'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+      "height": 720.00,
+      "name": "684f7dcda574bfe8257d",
+      "ordinal": 19,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"7ac26fcd4523266ff293\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":8.559828039168856,\"z\":1000,\"width\":1269.300214951039,\"height\":711.6885598280392,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"78.15692126720472D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}}]}}}",
+          "filters": "[]",
+          "height": 711.69,
+          "width": 1269.30,
+          "x": 0.00,
+          "y": 8.56,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Exceptional Results",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "7c9f6fb038180e210ce9",
+      "ordinal": 22,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"44fe672a0300437be450\",\"layouts\":[{\"id\":0,\"position\":{\"x\":394.07638347622753,\"y\":393.078721745908,\"z\":2000,\"width\":259.3920498830865,\"height\":145.65861262665626,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Results (DIM).Number of Results\"},{\"queryRef\":\"Results (DIM).Expected Result\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Results (DIM)\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Number of Results\"},\"Name\":\"Results (DIM).Number of Results\",\"NativeReferenceName\":\"Number of Results\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Expected Result\"},\"Name\":\"Results (DIM).Expected Result\",\"NativeReferenceName\":\"Expected Result\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Expected Result\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 145.66,
+          "width": 259.39,
+          "x": 394.08,
+          "y": 393.08,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"e33296bc6c7e87b1cb55\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.976617303195635,\"y\":393.078721745908,\"z\":1000,\"width\":259.3920498830865,\"height\":145.65861262665626,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Results (DIM).Result\"},{\"queryRef\":\"Results (DIM).Number of Results\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Results (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Result\"},\"Name\":\"Results (DIM).Result\",\"NativeReferenceName\":\"Result\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Number of Results\"},\"Name\":\"Results (DIM).Number of Results\",\"NativeReferenceName\":\"Number of Results\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Result\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 145.66,
+          "width": 259.39,
+          "x": 9.98,
+          "y": 393.08,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"f808555acb23419a5bd4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.976617303195635,\"y\":0,\"z\":0,\"width\":630.5222135619641,\"height\":383.10210444271235,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Results (DIM).Exceptional Result\",\"active\":true}],\"Y\":[{\"queryRef\":\"Results (DIM).Number of Results\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Results (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Exceptional Result\"},\"Name\":\"Results (DIM).Exceptional Result\",\"NativeReferenceName\":\"Exceptional Result\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Number of Results\"},\"Name\":\"Results (DIM).Number of Results\",\"NativeReferenceName\":\"Number of Results\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Number of Results\"}}}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 383.10,
+          "width": 630.52,
+          "x": 9.98,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Points by Position",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "889039b2b03979dd386c",
+      "ordinal": 21,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4dc795f6e654d092879d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.955555555555556,\"y\":547.5555555555555,\"z\":1000,\"width\":672.7111111111111,\"height\":172.0888888888889,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Detailed Player Data (Fact).No of Players\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"No of Players\"},\"Name\":\"Detailed Player Data (Fact).No of Players\",\"NativeReferenceName\":\"No of Players\"}]},\"autoSelectVisualType\":true,\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 172.09,
+          "width": 672.71,
+          "x": 9.96,
+          "y": 547.56,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"6eb4fee2cb018a64165e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":540.4444444444445,\"y\":0,\"z\":2000,\"width\":413.8666666666667,\"height\":449.4222222222222,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Position (DIM).Position Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"},\"Name\":\"Position (DIM).Position Name\",\"NativeReferenceName\":\"Position Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 449.42,
+          "width": 413.87,
+          "x": 540.44,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"8094a05ee0762221853d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":748.0888888888888,\"y\":402.4888888888889,\"z\":3000,\"width\":457.9555555555556,\"height\":270.22222222222223,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"Position (DIM).Position Name\",\"active\":true}],\"Values\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"},\"Name\":\"Position (DIM).Position Name\",\"NativeReferenceName\":\"Position Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 270.22,
+          "width": 457.96,
+          "x": 748.09,
+          "y": 402.49,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"db45fede05793b2b0d80\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.955555555555556,\"y\":0,\"z\":0,\"width\":413.8666666666667,\"height\":449.4222222222222,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Position (DIM).Position Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"Detailed Player Data (Fact).No of Players\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"},\"Name\":\"Position (DIM).Position Name\",\"NativeReferenceName\":\"Position Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"No of Players\"},\"Name\":\"Detailed Player Data (Fact).No of Players\",\"NativeReferenceName\":\"No of Players\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"No of Players\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 449.42,
+          "width": 413.87,
+          "x": 9.96,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Forward XG - Biggest Misses",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "8cd3f0e51c294b033a51",
+      "ordinal": 20,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"86871744fa5159118b6c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1094.1560798548094,\"height\":720.1451905626134,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Detailed Player Data (Fact).xGDiff\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"xGDiff\"},\"Name\":\"Detailed Player Data (Fact).xGDiff\",\"NativeReferenceName\":\"xGDiff\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"xGDiff\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"icon\":{\"kind\":\"Icon\",\"layout\":{\"expr\":{\"Literal\":{\"Value\":\"'Before'\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}},\"value\":{\"expr\":{\"Conditional\":{\"Cases\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"2D\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":4,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"200D\"}}}}}},\"Value\":{\"Literal\":{\"Value\":\"'CircleHigh'\"}}},{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"-2D\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"2D\"}}}}}},\"Value\":{\"Literal\":{\"Value\":\"'SignMedium'\"}}},{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"-50D\"}}}},\"Right\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"xGDiff\"}},\"Right\":{\"Literal\":{\"Value\":\"-2D\"}}}}}},\"Value\":{\"Literal\":{\"Value\":\"'SignLow'\"}}}]}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}],\"metadata\":\"Detailed Player Data (Fact).xGDiff\"}}]}}}",
+          "filters": "[]",
+          "height": 720.15,
+          "width": 1094.16,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"dbb2cc7a078a9a8c0ba0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1142.4104234527688,\"y\":120.91205211726385,\"z\":3000,\"width\":100.06514657980456,\"height\":40.304017372421285,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Players'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmark'\"}}},\"bookmark\":{\"expr\":{\"Literal\":{\"Value\":\"'b027984a10813b75682e'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.30,
+          "width": 100.07,
+          "x": 1142.41,
+          "y": 120.91,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "BonusPoints",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection078c9fbc17a311fc9295",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"ec7b2a6423f677131ad5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.6,\"y\":0,\"z\":0,\"width\":536.5333333333333,\"height\":403.2}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).bonus)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"bonus\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).bonus)\",\"NativeReferenceName\":\"bonus\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"bonus\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 403.20,
+          "width": 536.53,
+          "x": 9.60,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Forwards",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter61af6c2fa216064f5419\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Forwards'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+      "height": 720.00,
+      "name": "ReportSection09ff0900a7b0be9400d4",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"445029ddb8b7ca86aba3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":8.559828039168856,\"z\":1000,\"width\":1269.300214951039,\"height\":711.6885598280392,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"78.15692126720472D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}}]}}}",
+          "filters": "[]",
+          "height": 711.69,
+          "width": 1269.30,
+          "x": 0.00,
+          "y": 8.56,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Top 11 Players",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection20912c5e1ed8cf5fbd48",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"10d8c0eb07ac797f299f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.942115768463074,\"y\":0,\"z\":0,\"width\":648.942115768463,\"height\":302.7544910179641}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).total_points)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).assists)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).bonus)\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).total_points)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Assists made\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).assists)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"bonus\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).bonus)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3}}",
+          "filters": "[{\"name\":\"Filterf21c9025bf5afc7be2c1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}],\"Top\":11}}},\"Type\":2},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"Filter0ce2fdb1ae9204bf8a99\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Total Points\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":1},{\"name\":\"Filter9484765f862171f5b0d7\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Assists made\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filter1af046063e63a464cd92\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"bonus\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filter4dada006bdae2e264cf6\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Total Points\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 302.75,
+          "width": 648.94,
+          "x": 8.94,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Side with most points",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection3b55a82d1586e4384633",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"c3c274d3f6ee75d66f0d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.78266061619298,\"y\":101.49510389300215,\"z\":0,\"width\":924.4614282302365,\"height\":610.193455935037}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Club Data (DIM).name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).total_points)\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"},{\"queryRef\":\"Detailed Player Data (Fact).Form Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).total_points)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form Sum\"},\"Name\":\"Detailed Player Data (Fact).Form Sum\",\"NativeReferenceName\":\"Form Sum\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 610.19,
+          "width": 924.46,
+          "x": 9.78,
+          "y": 101.50,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Goalkeeper",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter329003a9b0c9deb19665\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Goalkeepers'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection42ef40c5b34be14cfd3f",
+      "ordinal": 9,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2534b1570ef246d6aa3a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":629,\"y\":0,\"width\":609,\"height\":664,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 664.00,
+          "width": 609.00,
+          "x": 629.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"2a6256979137617e41d7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":7.917525773195876,\"z\":1000,\"width\":1245.0309278350514,\"height\":712.5773195876288,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Clean sheets)\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"},{\"queryRef\":\"Detailed Player Data (Fact).Latest Player Price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals conceded)\",\"NativeReferenceName\":\"Sum of Goals conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Clean sheets\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Clean sheets)\",\"NativeReferenceName\":\"Sum of Clean sheets\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Latest Player Price\"},\"Name\":\"Detailed Player Data (Fact).Latest Player Price\",\"NativeReferenceName\":\"Latest Player Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"173.42918725210015D\"}}}},\"selector\":{\"metadata\":\"Player Data (Dim).Player Name\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"98.94507396306939D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"85.1898613248338D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Goals conceded)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"66.40172276062755D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_assists)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"70.19536742056576D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Total Points)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"49.293049916407924D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Clean sheets)\"}}]}}}",
+          "filters": "[]",
+          "height": 712.58,
+          "width": 1245.03,
+          "x": 0.00,
+          "y": 7.92,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Expected Goals",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterfb43c4a42c17e7133ca7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Club Data (DIM)\"}},\"Property\":\"Team name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "ReportSection95f6bb93ddb0f08b30ab",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"712172341d76706a7484\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.72644376899696,\"y\":0,\"z\":0,\"width\":1140.9118541033436,\"height\":720.7294832826748}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"161.75077307647865D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"81.31612461763906D\"}}}},\"selector\":{\"metadata\":\"Player Data (Dim).ep_next\"}}]}}}",
+          "filters": "[]",
+          "height": 720.73,
+          "width": 1140.91,
+          "x": 9.73,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad200e488d2c9be9e3b6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1137.0212765957447,\"y\":0,\"z\":1000,\"width\":142.97872340425533,\"height\":719.7568389057751}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Position (DIM).Position Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"},\"Name\":\"Position (DIM).Position Name\",\"NativeReferenceName\":\"Position Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 719.76,
+          "width": 142.98,
+          "x": 1137.02,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Defender",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter329003a9b0c9deb19665\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Defenders'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection9d01f0b48bd1d936e239",
+      "ordinal": 8,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"54378aaaf30aa0d72047\",\"layouts\":[{\"id\":0,\"position\":{\"x\":629,\"y\":0,\"width\":609,\"height\":664,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 664.00,
+          "width": 609.00,
+          "x": 629.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"6a2e243f5d2cbb95d0ba\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":7.33446519524618,\"z\":1000,\"width\":1279.8641765704585,\"height\":712.6655348047539,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Clean sheets)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Clean sheets\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Clean sheets)\",\"NativeReferenceName\":\"Sum of Clean sheets\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals conceded)\",\"NativeReferenceName\":\"Sum of Goals conceded\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"95.60673709526145D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"119.76401811774248D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"89.70151512858159D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Clean sheets)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"83.70149490575403D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Total Points)\"}}]}}}",
+          "filters": "[]",
+          "height": 712.67,
+          "width": 1279.86,
+          "x": 0.00,
+          "y": 7.33,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Player Specifics",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter9b982f6ad022d3e31586\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Player Data (Dim)\"}},\"Property\":\"Player Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Declan Rice'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectiona0a88245d9b738675364",
+      "ordinal": 10,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"06fe02a93e33785a8c96\",\"layouts\":[{\"id\":0,\"position\":{\"x\":912.4948453608247,\"y\":0,\"z\":2000,\"width\":367.1752577319587,\"height\":189.03092783505153,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Player Data (Dim).Player Name)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"}},\"Function\":3},\"Name\":\"Min(Player Data (Dim).Player Name)\",\"NativeReferenceName\":\"First Player Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 189.03,
+          "width": 367.18,
+          "x": 912.49,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"69a9b680f98e0ba4e58f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":47.460674157303366,\"y\":531.7752808988764,\"z\":1000,\"width\":1207.0112359550562,\"height\":151.01123595505618,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Detailed Player Data (Fact).Average Points\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Assists made)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Average Points\"},\"Name\":\"Detailed Player Data (Fact).Average Points\",\"NativeReferenceName\":\"Average Points\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Assists made\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Assists made)\",\"NativeReferenceName\":\"Sum of Assists made\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Average Points\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 151.01,
+          "width": 1207.01,
+          "x": 47.46,
+          "y": 531.78,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"b01313cdbb96aa5bef54\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.896907216494844,\"y\":0,\"z\":0,\"width\":722.4742268041236,\"height\":477.0309278350515,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 477.03,
+          "width": 722.47,
+          "x": 9.90,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Assists",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionaa6b183aa6013366ebe0",
+      "ordinal": 12,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"93042d49d21d0483bb1d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.70513900589722,\"y\":0,\"z\":0,\"width\":845.4254422914911,\"height\":555.3496208930076,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Assists made)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Assists made\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Assists made)\",\"NativeReferenceName\":\"Sum of Assists made\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Assists made\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 555.35,
+          "width": 845.43,
+          "x": 9.71,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Monthly Breakdown",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionaafece1444d4137e9091",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"996bb4ffefabd4982273\",\"layouts\":[{\"id\":0,\"position\":{\"x\":864.9896907216494,\"y\":0,\"z\":1000,\"width\":392.90721649484533,\"height\":267.2164948453608}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}],\"Rows\":[{\"queryRef\":\"DateDim.Month Hierarchy.Month\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DateDim\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"Month Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"DateDim.Month Hierarchy.Month\",\"NativeReferenceName\":\"Month Hierarchy Month\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 267.22,
+          "width": 392.91,
+          "x": 864.99,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"cdd1e3f4d0fbbcc7348c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":11.662870159453304,\"y\":58.31435079726652,\"z\":0,\"width\":795.0189825360669,\"height\":601.6097190584662}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).total_points)\"}],\"Category\":[{\"queryRef\":\"DateDim.Month Hierarchy.Month\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DateDim\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).total_points)\"},{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"Month Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"DateDim.Month Hierarchy.Month\",\"NativeReferenceName\":\"Month Hierarchy Month\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 601.61,
+          "width": 795.02,
+          "x": 11.66,
+          "y": 58.31,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Club Performance",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionbbc238d4e2ab7b2ec6fc",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"b50ece405ce9dc34f894\",\"layouts\":[{\"id\":0,\"position\":{\"x\":11.338669865510163,\"y\":9.448891554591802,\"z\":0,\"width\":1105.520311887241,\"height\":451.65701630948814}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DateDim.Month Hierarchy.Month\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}],\"Series\":[{\"queryRef\":\"Club Data (DIM).Team name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DateDim\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Hierarchy\":\"Month Hierarchy\"}},\"Level\":\"Month\"},\"Name\":\"DateDim.Month Hierarchy.Month\",\"NativeReferenceName\":\"Month Hierarchy Month\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 451.66,
+          "width": 1105.52,
+          "x": 11.34,
+          "y": 9.45,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"db74837a78c0ac0300ca\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":461,\"width\":1105,\"height\":259,\"z\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Detailed Player Data (Fact).Team Ranks\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Team Ranks\"},\"Name\":\"Detailed Player Data (Fact).Team Ranks\",\"NativeReferenceName\":\"Team Ranks\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 259.00,
+          "width": 1105.00,
+          "x": 10.00,
+          "y": 461.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Biggest misses",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterc22ed787849709879f71\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "ReportSectionbffb460007f3fbc61331",
+      "ordinal": 11,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3b298f2ee1ac4b29260c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":31.361161524500908,\"y\":0,\"z\":2000,\"width\":1248.6388384754991,\"height\":721.3067150635209}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Detailed Player Data (Fact).xGDiff\"},{\"queryRef\":\"Detailed Player Data (Fact).xGDiff%\"},{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Minutes played)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).starts)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"xGDiff\"},\"Name\":\"Detailed Player Data (Fact).xGDiff\",\"NativeReferenceName\":\"xGDiff\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"xGDiff%\"},\"Name\":\"Detailed Player Data (Fact).xGDiff%\",\"NativeReferenceName\":\"xGDiff%\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Minutes played\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Minutes played)\",\"NativeReferenceName\":\"Sum of Minutes played\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"starts\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).starts)\",\"NativeReferenceName\":\"Sum of starts\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"xGDiff\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"Goals Scored\"}},\"Function\":0}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Goals Scored\"}},\"Function\":0}},\"Right\":{\"Literal\":{\"Value\":\"0L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false},{\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Detailed Player Data (Fact)\"}},\"Property\":\"expected_goals\"}},\"Function\":0}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"expected_goals\"}},\"Function\":0}},\"Right\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 721.31,
+          "width": 1248.64,
+          "x": 31.36,
+          "y": 0.00,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Midfiled",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter329003a9b0c9deb19665\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Midfielders'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectionc52000b91e8dc57c362a",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"bdc25acf4571fab26d58\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":8.559828039168856,\"z\":1000,\"width\":1231.392405063291,\"height\":711.6885598280392,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Player Data (Dim).Player Name\"},{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Player Data (Dim).ep_next\"},{\"queryRef\":\"Detailed Player Data (Fact).Form\"},{\"queryRef\":\"Detailed Player Data (Fact).Latest Player Price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"ep_next\"},\"Name\":\"Player Data (Dim).ep_next\",\"NativeReferenceName\":\"ep_next\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Latest Player Price\"},\"Name\":\"Detailed Player Data (Fact).Latest Player Price\",\"NativeReferenceName\":\"Latest Player Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"89.48842325014303D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"73.63004817244214D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"96.4994089400265D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"62.733258038794744D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).expected_assists)\"}}]}}}",
+          "filters": "[]",
+          "height": 711.69,
+          "width": 1231.39,
+          "x": 0.00,
+          "y": 8.56,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Matrix - Player Cost Comparison",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"f2f3d60921059d54c339\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Club Data (DIM)\"}},\"Property\":\"Team name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},{\"name\":\"9f6c31f43613ed8c0064\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectiond4cf7fb748aa6ec7730a",
+      "ordinal": 14,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"12fbe60bee627e5109ec\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.976617303195635,\"y\":0,\"z\":0,\"width\":1100.4208885424785,\"height\":642.4941543257988,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}],\"X\":[{\"queryRef\":\"Player Data (Dim).NowCostMillions\",\"active\":true}],\"Series\":[{\"queryRef\":\"Player Data (Dim).Player Name\"}],\"Size\":[{\"queryRef\":\"Detailed Player Data (Fact).Form\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Player Data (Dim)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"NowCostMillions\"},\"Name\":\"Player Data (Dim).NowCostMillions\",\"NativeReferenceName\":\"NowCostMillions\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Player Name\"},\"Name\":\"Player Data (Dim).Player Name\",\"NativeReferenceName\":\"Player Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Form\"},\"Name\":\"Detailed Player Data (Fact).Form\",\"NativeReferenceName\":\"Form\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"referenceLine\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Percentile line 1'\"}}},\"value\":{\"expr\":{\"Percentile\":{\"Expression\":{\"SelectRef\":{\"ExpressionName\":\"Sum(Detailed Player Data (Fact).Total Points)\"}},\"K\":0.95}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"style\":{\"expr\":{\"Literal\":{\"Value\":\"'solid'\"}}},\"width\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}},\"selector\":{\"metadata\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"id\":\"1\"}}]}}}",
+          "filters": "[]",
+          "height": 642.49,
+          "width": 1100.42,
+          "x": 9.98,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Top 3 Comparison",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter67e1a7c400be5ecb60a7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Club Data (DIM)\"}},\"Property\":\"Team name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Arsenal'\"}}],[{\"Literal\":{\"Value\":\"'Man City'\"}}],[{\"Literal\":{\"Value\":\"'Liverpool'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectioned332a86cba833b30481",
+      "ordinal": 13,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"634e3050980d01dd7063\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":248.01313628899837,\"z\":2000,\"width\":1177.0114942528735,\"height\":139.77011494252875,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals Scored)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals Scored\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals Scored)\",\"NativeReferenceName\":\"Sum of Goals Scored\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 139.77,
+          "width": 1177.01,
+          "x": 0.00,
+          "y": 248.01,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"a443a807b7040412d0d0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.50903119868637,\"y\":80.91954022988506,\"z\":1000,\"width\":1177.0114942528735,\"height\":139.77011494252875,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Club Data (DIM).Team name\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).Goals conceded)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Goals conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Goals conceded)\",\"NativeReferenceName\":\"Sum of Goals conceded\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":\"Filterc3f3b5c1c24104261ec0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Goalkeepers'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+          "height": 139.77,
+          "width": 1177.01,
+          "x": 10.51,
+          "y": 80.92,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Decomposition Tree",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "bcbc2373d3001ccaba5a",
+      "ordinal": 18,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3025e3418803212a8c99\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.606060606060606,\"y\":0,\"z\":0,\"width\":925.7575757575758,\"height\":530.3030303030303,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"decompositionTreeVisual\",\"projections\":{\"Analyze\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).Total Points)\"}],\"ExplainBy\":[{\"queryRef\":\"Position (DIM).Position Name\",\"active\":true},{\"queryRef\":\"Club Data (DIM).Team name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Club Data (DIM)\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Position (DIM)\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).Total Points)\",\"NativeReferenceName\":\"Sum of Total Points\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Team name\"},\"Name\":\"Club Data (DIM).Team name\",\"NativeReferenceName\":\"Team name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Position Name\"},\"Name\":\"Position (DIM).Position Name\",\"NativeReferenceName\":\"Position Name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"}},\"Function\":0}}}]},\"expansionStates\":[{\"roles\":[\"ExplainBy\"],\"levels\":[{\"queryRefs\":[\"Position (DIM).Position Name\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}}],\"isPinned\":true,\"AIInformation\":{\"method\":\"MaxSplit\",\"disabled\":true}},{\"queryRefs\":[\"Club Data (DIM).Team name\"],\"isCollapsed\":true,\"isPinned\":true,\"AIInformation\":{\"method\":\"MaxSplit\",\"disabled\":false}}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Midfielders'\"}}],\"isToggled\":true}]}}],\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"tree\":[{\"properties\":{\"effectiveBarsPerLevel\":{\"expr\":{\"Literal\":{\"Value\":\"6L\"}}}}}],\"insights\":[{\"properties\":{\"isAINode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Position (DIM)\"}},\"Property\":\"Position Name\"}},\"Right\":{\"Literal\":{\"Value\":\"'Midfielders'\"}}}}},{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Club Data (DIM)\"}},\"Property\":\"Team name\"}},\"Right\":{\"Literal\":{\"Value\":\"'Liverpool'\"}}}}}]}}]},\"vcObjects\":{\"visualTooltip\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 530.30,
+          "width": 925.76,
+          "x": 10.61,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Key Influencers",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "fcc85ae5590a16300dd9",
+      "ordinal": 17,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"78cd31a8516720016b81\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.606060606060606,\"y\":0,\"z\":0,\"width\":1151.5151515151515,\"height\":613.6363636363636,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"keyDriversVisual\",\"projections\":{\"Target\":[{\"queryRef\":\"Detailed Player Data (Fact).Total Points\"}],\"ExplainBy\":[{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_assists)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals)\"},{\"queryRef\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Detailed Player Data (Fact)\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Total Points\"},\"Name\":\"Detailed Player Data (Fact).Total Points\",\"NativeReferenceName\":\"Total Points\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_assists)\",\"NativeReferenceName\":\"Sum of expected_assists\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goal_involvements\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goal_involvements)\",\"NativeReferenceName\":\"Sum of expected_goal_involvements\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals)\",\"NativeReferenceName\":\"Sum of expected_goals\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_goals_conceded\"}},\"Function\":0},\"Name\":\"Sum(Detailed Player Data (Fact).expected_goals_conceded)\",\"NativeReferenceName\":\"Sum of expected_goals_conceded\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"expected_assists\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"keyDrivers\":[{\"properties\":{\"selectedAnalysis\":{\"expr\":{\"Literal\":{\"Value\":\"'topProfiles'\"}}},\"numericTargetSelectedKind\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 613.64,
+          "width": 1151.52,
+          "x": 10.61,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+table 'Fixtures (DIM)'
+	lineageTag: f166cb28-957a-42e8-bda0-1262ec3180cf
+
+	column code
+		dataType: string
+		lineageTag: 00b373bd-78bb-4ea3-8ad0-4b4fdf98f2ec
+		summarizeBy: none
+		sourceColumn: code
+
+		annotation SummarizationSetBy = Automatic
+
+	column event
+		dataType: string
+		lineageTag: d5706b91-559b-4dee-8535-ec4d3fa8485c
+		summarizeBy: none
+		sourceColumn: event
+
+		annotation SummarizationSetBy = Automatic
+
+	column finished
+		dataType: string
+		lineageTag: 66d29cd9-dc9e-45b6-808d-8f2fe146639c
+		summarizeBy: none
+		sourceColumn: finished
+
+		annotation SummarizationSetBy = Automatic
+
+	column finished_provisional
+		dataType: string
+		lineageTag: 6bc4cf1b-85ec-426b-a76d-0b43dc83c972
+		summarizeBy: none
+		sourceColumn: finished_provisional
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: string
+		lineageTag: 479680a2-dac5-4fb3-9778-274b645fe3b4
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column kickoff_time
+		dataType: string
+		lineageTag: 0e1f1a4e-184b-4aa8-95ef-f9b5c597a15c
+		summarizeBy: none
+		sourceColumn: kickoff_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column minutes
+		dataType: string
+		lineageTag: 5b6c16d0-ccc9-445c-9e1a-e86a7b1a6623
+		summarizeBy: none
+		sourceColumn: minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column provisional_start_time
+		dataType: string
+		lineageTag: 7f45b5c7-6a57-4835-8f17-83b033e755e2
+		summarizeBy: none
+		sourceColumn: provisional_start_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column started
+		dataType: string
+		lineageTag: 45b6b03c-9cfc-4810-bb6c-5dbd80d84a81
+		summarizeBy: none
+		sourceColumn: started
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a
+		dataType: string
+		lineageTag: c4a33ee4-6a37-4d67-ad10-fb7802ff5ab1
+		summarizeBy: none
+		sourceColumn: team_a
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a_score
+		dataType: string
+		lineageTag: ac7c9dfe-221f-4a7d-b366-3232bc237ffc
+		summarizeBy: none
+		sourceColumn: team_a_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h
+		dataType: string
+		lineageTag: 885b43b3-c68f-45af-aa7f-5cbdeb1ea1c8
+		summarizeBy: none
+		sourceColumn: team_h
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h_score
+		dataType: string
+		lineageTag: 313adff3-8897-4811-aa26-b1e40974a8e3
+		summarizeBy: none
+		sourceColumn: team_h_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column stats
+		dataType: string
+		lineageTag: 37ff2df3-405a-42a1-aea0-b1b27a16316d
+		summarizeBy: none
+		sourceColumn: stats
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_h_difficulty
+		dataType: string
+		lineageTag: eec22113-1486-4a1d-bc97-4f14ab9af9d5
+		summarizeBy: none
+		sourceColumn: team_h_difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_a_difficulty
+		dataType: string
+		lineageTag: 6fef37d6-61b7-4e51-9820-abb9149bd7dd
+		summarizeBy: none
+		sourceColumn: team_a_difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column pulse_id
+		dataType: string
+		lineageTag: f7e84fb9-d008-41d0-8ed1-a6d7cba56157
+		summarizeBy: none
+		sourceColumn: pulse_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fixtures (DIM)' = m
+		mode: import
+		source =
+				let
+				    Source = Json.Document(Web.Contents(" https://fantasy.premierleague.com/api/fixtures/")),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"}, {"code", "event", "finished", "finished_provisional", "id", "kickoff_time", "minutes", "provisional_start_time", "started", "team_a", "team_a_score", "team_h", "team_h_score", "stats", "team_h_difficulty", "team_a_difficulty", "pulse_id"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded Column1", each ([finished] = false))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
