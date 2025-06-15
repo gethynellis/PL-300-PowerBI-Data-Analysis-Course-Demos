@@ -1,3 +1,6 @@
+# FPL Data
+I bring FPL data into the PL-300 class. I also write a lot of content on FPL - I'll share all my Power BI Reports here so you can download and use these for yourselfs
+
 # PL-300-PowerBI-Data-Analysis-Course-Demos
 This is the public repo for all my PL-300 activity.  I'll be placing all demo content here that I use when delivering ILT that students and the wider public can use
 
