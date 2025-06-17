@@ -67,7 +67,7 @@ Each group discusses and answers the five questions below, using what they’ve 
 
 #### 🔹 Step 4 – Share & feedback
 
-Each group shares  their insights in a group discussion
+
 
 ---
 
@@ -83,7 +83,7 @@ Each group shares  their insights in a group discussion
 
 **Consider:**
 
-* Extensions like `pgTSQL`, `Babelfish`, and `orafce`
+* Extensions like `Babelfish`
 * PL/pgSQL stored procedures and user-defined functions
 * SQL standard compliance and cross-DB portability
 
