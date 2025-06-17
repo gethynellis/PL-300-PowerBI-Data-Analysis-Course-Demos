@@ -3,7 +3,7 @@
 ## 🧠 PostgreSQL Migration Workshop: Architecture, Concerns & Solutions
 
 **Duration:** 45 minutes
-**Location:** End of Chapter 3.2
+**Location:** End of Chapter 2
 **Format:** Group discussion and whiteboarding
 
 ---
