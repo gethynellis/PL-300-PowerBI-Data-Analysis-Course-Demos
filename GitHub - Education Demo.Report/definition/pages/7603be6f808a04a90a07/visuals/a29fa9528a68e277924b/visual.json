@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "a29fa9528a68e277924b",
+  "position": {
+    "x": 9.4027623675249661,
+    "y": 0,
+    "z": 0,
+    "height": 539.0917090714313,
+    "width": 463.86961013123164,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OfstedFact"
+                    }
+                  },
+                  "Property": "Number Inspections"
+                }
+              },
+              "queryRef": "OfstedFact.Number Inspections",
+              "nativeQueryRef": "Number Inspections"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "OfstedFact"
+                  }
+                },
+                "Property": "Number Inspections"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

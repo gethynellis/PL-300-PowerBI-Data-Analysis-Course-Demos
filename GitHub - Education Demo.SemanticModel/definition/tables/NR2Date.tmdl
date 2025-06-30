@@ -1,0 +1,37 @@
+table NR2Date
+	lineageTag: a100bbb3-fa70-4fc8-85a1-5bf9c3f7ff82
+
+	column Date
+		formatString: General Date
+		lineageTag: d931a22e-8a1e-4409-bd4b-375fdf9f15a7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('NR2Date'[Date], "YYYY-MM")
+		lineageTag: 8455f53b-3687-49c3-852e-1df8db7e9019
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = "CY" & YEAR(NR2Date[Date])
+		lineageTag: 13cb5305-3c0e-4d6a-b0db-e774f2a10ea6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month No' = MONTH(NR2Date[Date])
+		formatString: 0
+		lineageTag: bdfb503b-98c5-49f4-9850-5dae08fae0aa
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NR2Date = calculated
+		mode: import
+		source = CALENDARAUTO()
+
+	annotation PBI_Id = b36a3d9f1c46494396d57987a836a0bb
+

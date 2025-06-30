@@ -1,0 +1,33 @@
+relationship AutoDetected_f92be6e9-40b8-4fa4-bc56-540ad4d48663
+	fromColumn: OfstedFact.KeyTypeofEducation
+	toColumn: DimTypeofEducation.KeyTypeofEducation
+
+relationship AutoDetected_b6b41492-c35b-4a6f-853a-3e466a24132d
+	fromColumn: OfstedFact.'Ofsted phase'
+	toColumn: DimOfstedPhease.'Ofsted phase'
+
+relationship AutoDetected_05171368-7beb-4bae-b11f-23567a5712b2
+	fromColumn: OfstedFact.KeySixthForm
+	toColumn: DimSixthForm.KeySixthForm
+
+relationship 701b7768-2d5c-0bd9-3e4f-eb7cf5515676
+	fromColumn: OfstedFact.'Overall effectiveness'
+	toColumn: DimOfstedRatings.'Ofsted Grade Index'
+
+relationship AutoDetected_27610ccf-dce8-4621-83b7-0c974814362c
+	fromColumn: OfstedFact.'Key Parliament'
+	toColumn: 'Dim Parliament'.'Key Parliament'
+
+relationship c164dd9a-8ee3-fc9c-9cd7-595b5be3b7cf
+	fromColumn: OfstedFact.'Key LA'
+	toColumn: DimLA.'Key LA'
+
+relationship 3b1f4886-e6d3-7c7a-eaa1-52d9573a9af6
+	fromColumn: OfstedFact.'Inspection start date'
+	toColumn: Date.Date
+
+relationship 34372046-ae1e-cbc7-65a0-e9eaf60433ce
+	isActive: false
+	fromColumn: OfstedFact.'Date of latest ungraded inspection'
+	toColumn: Date.Date
+

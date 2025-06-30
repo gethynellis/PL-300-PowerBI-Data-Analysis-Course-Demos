@@ -1,0 +1,18 @@
+table NRDate
+	lineageTag: df001c4b-c807-43ce-b4f3-ec240260940d
+
+	column Date
+		formatString: General Date
+		lineageTag: 4898d5a1-f699-428e-8fa7-75c226be7848
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NRDate = calculated
+		mode: import
+		source = CALENDARAUTO()
+
+	annotation PBI_Id = 39766782a8d44c96adadc3afa6656ff9
+

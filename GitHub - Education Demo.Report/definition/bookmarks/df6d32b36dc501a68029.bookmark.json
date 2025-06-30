@@ -1,0 +1,446 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Wolverhampton",
+  "name": "df6d32b36dc501a68029",
+  "options": {
+    "targetVisualNames": [
+      "81bb39c20412c9ed00b8"
+    ]
+  },
+  "explorationState": {
+    "version": "1.15",
+    "activeSection": "0401a64054805e6636b0",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "e7bf96b663db877b4980",
+          "type": "Categorical",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "DimLA",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "In": {
+                    "Expressions": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Local authority"
+                        }
+                      }
+                    ],
+                    "Values": [
+                      [
+                        {
+                          "Literal": {
+                            "Value": "'Wolverhampton'"
+                          }
+                        }
+                      ]
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DimLA"
+                }
+              },
+              "Property": "Local authority"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "0401a64054805e6636b0": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "29a6c91d307d1e7959da",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimOfstedPhease"
+                    }
+                  },
+                  "Property": "Ofsted phase"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "dab67e84ea32ee97b5b6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9296f185aca0b7730070",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Parliament"
+                        }
+                      },
+                      "Property": "Parliamentary constituency"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6aad1e7bb8b7122050be",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "OfstedFact"
+                            }
+                          },
+                          "Property": "Total number of pupils"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e03b252210b7032a05bb",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimLA"
+                        }
+                      },
+                      "Property": "Local authority"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "OfstedFact"
+                            }
+                          },
+                          "Property": "Total number of pupils"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimLA"
+                        }
+                      },
+                      "Property": "Local authority"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Dim Parliament"
+                        }
+                      },
+                      "Property": "Parliamentary constituency"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DimLA.Local authority"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DimLA"
+                              }
+                            },
+                            "Property": "Local authority"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Dim Parliament.Parliamentary constituency"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null,
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Milton Keynes'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "8842032dc0299e70a4d3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3f9a40da798aa25981be",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "Postcode"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1a6a961d09a6645655db",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "OfstedFact"
+                            }
+                          },
+                          "Property": "Total number of pupils"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b9b70956400e412b4128",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "School name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "map",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "Postcode"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e7ed5ade57c69820d6aa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1e5d0740ec971daa6873",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "Avg Number of Students"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "autoSelectVisualType": true,
+              "objects": {}
+            }
+          },
+          "22e992505572482b2004": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ad4d0b5e3b55a7dda3e7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimOfstedPhease"
+                        }
+                      },
+                      "Property": "Ofsted phase"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        },
+                        "isInvertedSelectionMode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimOfstedPhease"
+                        }
+                      },
+                      "Property": "Ofsted phase"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c825cd1d67020abc5aca": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "080adf3039e3a6bea7db",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "Avg Number of Students in Wolves"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "autoSelectVisualType": true,
+              "objects": {}
+            }
+          },
+          "81bb39c20412c9ed00b8": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {}
+  }
+}

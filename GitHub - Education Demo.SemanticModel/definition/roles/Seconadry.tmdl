@@ -1,0 +1,7 @@
+role Seconadry
+	modelPermission: read
+
+	tablePermission DimOfstedPhease = [Ofsted phase] == "Secondary"
+
+	annotation PBI_Id = 7ffd59d850bd423883e4aaafca71b53e
+

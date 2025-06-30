@@ -1,0 +1,35 @@
+table DimOfstedRatings
+	lineageTag: 399883c7-59aa-4afb-9b22-ae99b59ae4ba
+
+	column 'Ofsted Grade Index'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3cafeab-fcee-48ce-b741-8d1047cb360b
+		summarizeBy: none
+		sourceColumn: Ofsted Grade Index
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ofsted Grade Rating'
+		dataType: string
+		lineageTag: c466c3c6-f7ca-4668-98e4-849ea137adb6
+		summarizeBy: none
+		sourceColumn: Ofsted Grade Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimOfstedRatings = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\GethynEllis\Desktop\Offsted_Grade.xlsx"), null, true),
+				    #"Ofsted Ratings_Sheet" = Source{[Item="Ofsted Ratings",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Ofsted Ratings_Sheet", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Ofsted Grade Index", Int64.Type}, {"Ofsted Grade Rating", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

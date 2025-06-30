@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "GitHub - Education Demo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "38235c97-5b50-4514-9272-96ad1442df2f"
+  }
+}

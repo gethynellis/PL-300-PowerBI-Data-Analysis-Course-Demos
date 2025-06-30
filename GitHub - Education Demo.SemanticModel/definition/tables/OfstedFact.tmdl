@@ -1,0 +1,633 @@
+table OfstedFact
+	lineageTag: c484c144-f448-4f98-9d4a-237a8558730e
+
+	measure 'Avg Number of Students' = AVERAGE(OfstedFact[Total number of pupils])
+		lineageTag: 0e595374-71b6-4d0b-940a-1c6b3c978e70
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Number of Students in Wolves' = CALCULATE(AVERAGE(OfstedFact[Total number of pupils]), DimLA[Local authority] = "Wolverhampton")
+		lineageTag: 5104ee87-09ad-400c-886e-af0101ec6c2c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Number Inspections' = COUNT(OfstedFact[Overall effectiveness])
+		formatString: 0
+		lineageTag: 900e9b37-7f91-4f2e-867e-ad086118c8d2
+
+	measure 'Previous Year Inspections' =
+			
+			CALCULATE(
+			    COUNT(OfstedFact[Overall effectiveness]),
+			    SAMEPERIODLASTYEAR('Date'[Date])
+			)
+		formatString: 0
+		lineageTag: 1d8c7ca2-9f43-493c-b842-7c1f02dffeb4
+
+	measure 'No of Ofsted Inspections' = COUNTROWS(OfstedFact)
+		formatString: 0
+		lineageTag: c35312e6-3b8a-4a58-96e4-f4ec159c27f9
+
+	measure 'Min Smallest School' = MIN(OfstedFact[Total number of pupils])
+		formatString: 0
+		lineageTag: 59e9b302-59a6-487e-a57a-a011e8cd3b7e
+
+	measure 'Max No of Pupils' = MAX(OfstedFact[Total number of pupils])
+		formatString: 0
+		lineageTag: 5d87908d-d2ad-4c5a-92e7-287971971fe6
+
+	measure 'Number of Inpections ungraded' = ```
+			CALCULATE( 
+			    COUNT(OfstedFact[Overall effectiveness]), 
+			    USERELATIONSHIP('Date'[Date], OfstedFact[Date of latest ungraded inspection]))
+			```
+		formatString: 0
+		lineageTag: 003e622a-5686-4135-9468-c59b906779da
+
+	measure 'YTD Inspections' = ```
+			
+			    TOTALYTD(
+			        COUNT(OfstedFact[Overall effectiveness]),
+			        'Date'[Date]  -- Replace with the column from your Date Table
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 5522ea9f-6486-42ef-81cb-ffc45c4af11e
+
+	measure 'Total No of Pupil' = SUM('OfstedFact'[Total number of pupils])
+		formatString: 0
+		lineageTag: f605e4e2-5dd2-4fcc-a0b4-074ccc369bd8
+
+	measure 'KeyOfstedPhase minus Effectiveness of leadership and management' =
+			
+			SUM('OfstedFact'[KeyOfstedPhase]) - SUM('OfstedFact'[Effectiveness of leadership and management])
+		formatString: 0
+		lineageTag: 3293f045-db09-4ac5-83f6-10ef19a1876e
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalSubtraction"
+				}
+
+	measure 'AvgA Number of Students' = AVERAGE(OfstedFact[Total number of pupils])
+		lineageTag: 03106a9b-8892-4f8f-9b78-7ebea70322ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Pupils' = SUM(OfstedFact[Total number of pupils])
+		formatString: 0
+		lineageTag: beccfc52-ad9d-4124-8696-7d4b84ee1052
+
+	measure 'No of Inspections' = count('OfstedFact'[Inspection start date])
+		formatString: 0
+		lineageTag: 08766297-7b37-491a-bcc1-80f7ac3b7e44
+
+	measure 'No of Inspections Last Year' = ```
+			
+			CALCULATE(
+			    COUNT('OfstedFact'[Inspection start date]),
+			    SAMEPERIODLASTYEAR('Date'[Date])
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: 1beecf6b-691e-458f-9cc7-bef16d5febd2
+
+	measure 'No of Inspections Last Year date add' = ```
+			
+			CALCULATE(
+			    COUNT('OfstedFact'[Inspection start date]),
+			    DATEADD('Date'[Date], -1, YEAR)
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 548a1dd1-844d-4e78-b9b1-7f1b28c9c4d5
+
+	measure NRDemo = MAX(OfstedFact[Total No of Pupil])
+		lineageTag: 6d675ef3-c1ac-4585-8adf-fd868ac77bdc
+
+	column 'Web link'
+		dataType: string
+		lineageTag: 04ee4098-eeb0-4dee-922e-8aa65f1c4c98
+		summarizeBy: none
+		sourceColumn: Web link
+
+		annotation SummarizationSetBy = Automatic
+
+	column URN
+		dataType: int64
+		formatString: 0
+		lineageTag: 24aa3bb3-94da-47ab-b890-dcb5900e1a00
+		summarizeBy: sum
+		sourceColumn: URN
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAESTAB
+		dataType: int64
+		formatString: 0
+		lineageTag: 4360bccd-c26b-4412-b2cc-a1f5cd324198
+		summarizeBy: sum
+		sourceColumn: LAESTAB
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School name'
+		dataType: string
+		lineageTag: 5fe418cd-063b-4c1f-bb7d-8fe9ae3ca1d5
+		summarizeBy: none
+		sourceColumn: School name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ofsted phase'
+		dataType: string
+		lineageTag: 21f04f0c-d8d2-456c-8849-de290b9eacc7
+		summarizeBy: none
+		sourceColumn: Ofsted phase
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Admissions policy'
+		dataType: string
+		lineageTag: 640e32f6-7a4e-4be7-9afd-281c386ee5f5
+		summarizeBy: none
+		sourceColumn: Admissions policy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Multi-academy trust UID'
+		dataType: string
+		lineageTag: 5fc39183-c9eb-4e0f-86c7-d13c75b3f51a
+		summarizeBy: none
+		sourceColumn: Multi-academy trust UID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Multi-academy trust name'
+		dataType: string
+		lineageTag: 02762882-5b72-4f77-b143-772b18b62254
+		summarizeBy: none
+		sourceColumn: Multi-academy trust name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Academy sponsor UID'
+		dataType: string
+		lineageTag: 601c62b8-2845-4c1c-b0a4-91bd272dd4df
+		summarizeBy: none
+		sourceColumn: Academy sponsor UID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Academy sponsor name'
+		dataType: string
+		lineageTag: 3041361d-b0ec-4ba8-862a-ae4cf00146a3
+		summarizeBy: none
+		sourceColumn: Academy sponsor name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Postcode
+		dataType: string
+		lineageTag: efb6afd7-42f5-4b58-abd7-4753d902a7d7
+		dataCategory: PostalCode
+		summarizeBy: none
+		sourceColumn: Postcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'The income deprivation affecting children index (IDACI) quintile'
+		dataType: string
+		lineageTag: cc706665-3acb-4390-bc6e-17087e171bce
+		summarizeBy: none
+		sourceColumn: The income deprivation affecting children index (IDACI) quintile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total number of pupils'
+		dataType: int64
+		formatString: 0
+		lineageTag: b62a4445-2d1f-4fa3-b9a5-eb009a741728
+		summarizeBy: sum
+		sourceColumn: Total number of pupils
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of ungraded inspections since the last graded inspection'
+		dataType: string
+		lineageTag: 2894279a-3ddd-429d-955a-1cebb5c3c35d
+		summarizeBy: none
+		sourceColumn: Number of ungraded inspections since the last graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date of latest ungraded inspection'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aed1b45e-8d3a-4784-9ecd-fea41e80d2c1
+		summarizeBy: none
+		sourceColumn: Date of latest ungraded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ungraded inspection publication date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ca9e174-b4b1-4765-875d-5b02f7c74c61
+		summarizeBy: none
+		sourceColumn: Ungraded inspection publication date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Did the latest ungraded inspection convert to a graded inspection?'
+		dataType: string
+		lineageTag: cb012b26-5f44-439b-94c0-7993878b8a97
+		summarizeBy: none
+		sourceColumn: Did the latest ungraded inspection convert to a graded inspection?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ungraded inspection overall outcome'
+		dataType: string
+		lineageTag: fd5a568d-03aa-4ace-bf71-9755590136f7
+		summarizeBy: none
+		sourceColumn: Ungraded inspection overall outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Number of monitoring and urgent inspections since last graded inspection'
+		dataType: string
+		lineageTag: a4455ccd-39db-48c4-b747-4a476b1620c1
+		summarizeBy: none
+		sourceColumn: Number of monitoring and urgent inspections since last graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection type'
+		dataType: string
+		lineageTag: 58100898-dc7a-4c12-91b3-9403542cde5d
+		summarizeBy: none
+		sourceColumn: Inspection type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection type grouping'
+		dataType: string
+		lineageTag: 03649823-d6ef-460b-a0ee-b9ed29258807
+		summarizeBy: none
+		sourceColumn: Inspection type grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Event type grouping'
+		dataType: string
+		lineageTag: 54bbddd7-380f-43c8-a2e3-34a7dc135be4
+		summarizeBy: none
+		sourceColumn: Event type grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inspection start date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0c38ab1e-93cb-4157-bf3d-b9ec0cee9850
+		summarizeBy: none
+		sourceColumn: Inspection start date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Publication date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 67ffe4bb-963a-4973-b562-24f5f8a48b4f
+		summarizeBy: none
+		sourceColumn: Publication date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Overall effectiveness'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f5e6425-a129-4cc7-87bd-fd83685d60c3
+		summarizeBy: none
+		sourceColumn: Overall effectiveness
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category of concern'
+		dataType: string
+		lineageTag: f9d9f1f8-fcd4-42cc-9b99-d8fdf749d421
+		summarizeBy: none
+		sourceColumn: Category of concern
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quality of education'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f714595-cf69-4c05-8d0e-420912cb087b
+		summarizeBy: sum
+		sourceColumn: Quality of education
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Behaviour and attitudes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e5a3135-5589-4c58-a71b-724010ecb94f
+		summarizeBy: none
+		sourceColumn: Behaviour and attitudes
+
+		annotation SummarizationSetBy = User
+
+	column 'Personal development'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3563e467-4fdb-41a6-ba2b-7f7cffdcc582
+		summarizeBy: sum
+		sourceColumn: Personal development
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Effectiveness of leadership and management'
+		dataType: int64
+		formatString: 0
+		lineageTag: c87350af-8ac0-4192-b754-cbecc7d10c3a
+		summarizeBy: sum
+		sourceColumn: Effectiveness of leadership and management
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Safeguarding is effective?'
+		dataType: string
+		lineageTag: ddcbcf3d-80c4-4b50-8e18-95574eb98589
+		summarizeBy: none
+		sourceColumn: Safeguarding is effective?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Early years provision (where applicable)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d91d8eb-445f-4f6e-a1d7-a54f5790217e
+		summarizeBy: sum
+		sourceColumn: Early years provision (where applicable)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sixth form provision (where applicable)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 54b4c264-af83-4c9c-b531-6e1c5285462b
+		summarizeBy: sum
+		sourceColumn: Sixth form provision (where applicable)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous graded inspection number'
+		dataType: string
+		lineageTag: c0c90fcd-0fde-45df-9d51-c43c8e08ca1c
+		summarizeBy: none
+		sourceColumn: Previous graded inspection number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous inspection start date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5de5ee8e-a4ad-4646-ae9e-b1de541b14d1
+		summarizeBy: none
+		sourceColumn: Previous inspection start date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Previous publication date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 45aec575-5e02-4c30-b102-254068231356
+		summarizeBy: none
+		sourceColumn: Previous publication date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Does the previous graded inspection relate to the URN of the current school?'
+		dataType: string
+		lineageTag: 51f4b30b-9a8f-43ae-a1ff-5b5c0d4c2c57
+		summarizeBy: none
+		sourceColumn: Does the previous graded inspection relate to the URN of the current school?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'URN at time of previous graded inspection'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f79dc44-bc7a-480b-b2c9-23bb4a827aac
+		summarizeBy: sum
+		sourceColumn: URN at time of previous graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'LAESTAB at time of previous graded inspection'
+		dataType: int64
+		formatString: 0
+		lineageTag: f838c0f1-ad8f-4b78-8e29-fa2da946444a
+		summarizeBy: sum
+		sourceColumn: LAESTAB at time of previous graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School name at time of previous graded inspection'
+		dataType: string
+		lineageTag: e592013b-6bcd-49de-a46e-7accb14ef409
+		summarizeBy: none
+		sourceColumn: School name at time of previous graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'School type at time of previous graded inspection'
+		dataType: string
+		lineageTag: a84f1720-a838-439c-b58e-37e97f5b0121
+		summarizeBy: none
+		sourceColumn: School type at time of previous graded inspection
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous graded inspection overall effectiveness'
+		dataType: int64
+		formatString: 0
+		lineageTag: d6e85622-6aa9-493d-82fa-ff7acff9425c
+		summarizeBy: sum
+		sourceColumn: Previous graded inspection overall effectiveness
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous category of concern'
+		dataType: string
+		lineageTag: 49b05554-a613-45a3-9e8c-ac21cf3a6068
+		summarizeBy: none
+		sourceColumn: Previous category of concern
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous quality of education'
+		dataType: int64
+		formatString: 0
+		lineageTag: ea71c4c5-a6a4-4c83-aab4-9249ebe9da63
+		summarizeBy: sum
+		sourceColumn: Previous quality of education
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous behaviour and attitudes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c0ae0f7-3d10-4eb9-9a0f-4f5df97ceb6b
+		summarizeBy: sum
+		sourceColumn: Previous behaviour and attitudes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous personal development'
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d5ea36-78e6-47cd-a589-22e7a24e2614
+		summarizeBy: sum
+		sourceColumn: Previous personal development
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous effectiveness of leadership and management'
+		dataType: int64
+		formatString: 0
+		lineageTag: 84caf6d9-a327-4b55-bbeb-c4c993b7cea4
+		summarizeBy: sum
+		sourceColumn: Previous effectiveness of leadership and management
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previous safeguarding is effective?'
+		dataType: string
+		lineageTag: 5c9ad4d4-321b-436a-802c-c35ce9ab5fba
+		summarizeBy: none
+		sourceColumn: Previous safeguarding is effective?
+
+		annotation SummarizationSetBy = Automatic
+
+	column KeyTypeofEducation
+		dataType: int64
+		formatString: 0
+		lineageTag: 73a36205-499d-4ce5-9986-33f0e50dd48d
+		summarizeBy: none
+		sourceColumn: KeyTypeofEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	column KeySixthForm
+		dataType: int64
+		formatString: 0
+		lineageTag: dc182124-8aac-4f1c-b673-4e03a4c40365
+		summarizeBy: none
+		sourceColumn: KeySixthForm
+
+		annotation SummarizationSetBy = Automatic
+
+	column KeyOfstedPhase
+		dataType: int64
+		formatString: 0
+		lineageTag: 3695f130-6c7b-4a20-886c-1947e9e4c1d0
+		summarizeBy: sum
+		sourceColumn: KeyOfstedPhase
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Key LA'
+		dataType: int64
+		formatString: 0
+		lineageTag: e91d99f8-ec68-4e83-8846-2e2891bc74e7
+		summarizeBy: none
+		sourceColumn: Key LA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Key Parliament'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fc64ef8-5240-40e7-a50c-dfa6a2db47d4
+		summarizeBy: none
+		sourceColumn: Key Parliament
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time to Publish in Months' = ```
+			
+			/*This is a block
+			Comment*/
+			VAR TTP =
+			    DATEDIFF (
+			        'OfstedFact'[Inspection start date],
+			        OfstedFact[Publication date],
+			        MONTH
+			    ) //This is an inline comment. I have over used variables here
+			RETURN
+			    TTP
+			
+			```
+		formatString: 0
+		lineageTag: 6940d217-6237-4b9f-a1b2-7a8a7dd1c880
+		summarizeBy: average
+
+		annotation SummarizationSetBy = User
+
+	partition OfstedFact = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\GethynEllis\Desktop\Management_information_-_state-funded_schools_-_latest_inspections_as_at_31_Oct_2024.csv"),[Delimiter=",", Columns=74, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Web link", type text}, {"URN", Int64.Type}, {"LAESTAB", Int64.Type}, {"School name", type text}, {"Ofsted phase", type text}, {"Type of education", type text}, {"School open date", type date}, {"Admissions policy", type text}, {"Sixth form", type text}, {"Designated religious character", type text}, {"Religious ethos", type text}, {"Faith grouping", type text}, {"Ofsted region", type text}, {"Region", type text}, {"Local authority", type text}, {"Parliamentary constituency", type text}, {"Multi-academy trust UID", type text}, {"Multi-academy trust name", type text}, {"Academy sponsor UID", type text}, {"Academy sponsor name", type text}, {"Postcode", type text}, {"The income deprivation affecting children index (IDACI) quintile", type text}, {"Total number of pupils", Int64.Type}, {"Statutory lowest age", Int64.Type}, {"Statutory highest age", Int64.Type}, {"Latest ungraded inspection number since last graded inspection", type text}, {"Does the ungraded inspection relate to the URN of the current school?", type text}, {"URN at time of the ungraded inspection", type text}, {"LAESTAB at time of the ungraded inspection", type text}, {"School name at time of the ungraded inspection", type text}, {"School type at time of the ungraded inspection", type text}, {"Number of ungraded inspections since the last graded inspection", type text}, {"Date of latest ungraded inspection", type text}, {"Ungraded inspection publication date", type text}, {"Did the latest ungraded inspection convert to a graded inspection?", type text}, {"Ungraded inspection overall outcome", type text}, {"Number of monitoring and urgent inspections since last graded inspection", type text}, {"Inspection number of latest graded inspection", type text}, {"Inspection type", type text}, {"Inspection type grouping", type text}, {"Event type grouping", type text}, {"Inspection start date", type date}, {"Publication date", type date}, {"Does the latest graded inspection relate to the URN of the current school?", type text}, {"URN at time of latest graded inspection", Int64.Type}, {"LAESTAB at time of latest graded inspection", Int64.Type}, {"School name at time of latest graded inspection", type text}, {"School type at time of latest graded inspection", type text}, {"Overall effectiveness", Int64.Type}, {"Category of concern", type text}, {"Quality of education", Int64.Type}, {"Behaviour and attitudes", Int64.Type}, {"Personal development", Int64.Type}, {"Effectiveness of leadership and management", Int64.Type}, {"Safeguarding is effective?", type text}, {"Early years provision (where applicable)", Int64.Type}, {"Sixth form provision (where applicable)", Int64.Type}, {"Previous graded inspection number", type text}, {"Previous inspection start date", type date}, {"Previous publication date", type date}, {"Does the previous graded inspection relate to the URN of the current school?", type text}, {"URN at time of previous graded inspection", Int64.Type}, {"LAESTAB at time of previous graded inspection", Int64.Type}, {"School name at time of previous graded inspection", type text}, {"School type at time of previous graded inspection", type text}, {"Previous graded inspection overall effectiveness", Int64.Type}, {"Previous category of concern", type text}, {"Previous quality of education", Int64.Type}, {"Previous behaviour and attitudes", Int64.Type}, {"Previous personal development", Int64.Type}, {"Previous effectiveness of leadership and management", Int64.Type}, {"Previous safeguarding is effective?", type text}, {"Previous early years provision (where applicable)", Int64.Type}, {"Previous sixth form provision (where applicable)", Int64.Type}}),
+				    #"Remobe school Open Date" = Table.RemoveColumns(#"Changed Type",{"School open date", "Designated religious character", "Religious ethos", "Faith grouping", "Statutory lowest age", "Statutory highest age", "Latest ungraded inspection number since last graded inspection", "Does the ungraded inspection relate to the URN of the current school?", "URN at time of the ungraded inspection", "LAESTAB at time of the ungraded inspection", "School name at time of the ungraded inspection", "School type at time of the ungraded inspection"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Remobe school Open Date",{{"Date of latest ungraded inspection", type date}, {"Ungraded inspection publication date", type date}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type1",{"Inspection number of latest graded inspection", "Does the latest graded inspection relate to the URN of the current school?", "URN at time of latest graded inspection", "LAESTAB at time of latest graded inspection", "School name at time of latest graded inspection", "School type at time of latest graded inspection"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Removed Columns",{"Web link", "URN", "LAESTAB", "School name", "Ofsted phase", "Type of education", "Admissions policy", "Sixth form", "Ofsted region", "Region", "Local authority", "Parliamentary constituency", "Multi-academy trust UID", "Multi-academy trust name", "Academy sponsor UID", "Academy sponsor name", "Postcode", "The income deprivation affecting children index (IDACI) quintile", "Total number of pupils", "Number of ungraded inspections since the last graded inspection", "Date of latest ungraded inspection", "Ungraded inspection publication date", "Did the latest ungraded inspection convert to a graded inspection?", "Ungraded inspection overall outcome", "Number of monitoring and urgent inspections since last graded inspection", "Inspection type", "Inspection type grouping", "Event type grouping", "Inspection start date", "Publication date", "Overall effectiveness", "Category of concern", "Quality of education", "Behaviour and attitudes", "Personal development", "Effectiveness of leadership and management", "Safeguarding is effective?", "Early years provision (where applicable)", "Sixth form provision (where applicable)", "Previous graded inspection number", "Previous inspection start date", "Previous publication date", "Does the previous graded inspection relate to the URN of the current school?", "URN at time of previous graded inspection", "LAESTAB at time of previous graded inspection", "School name at time of previous graded inspection", "School type at time of previous graded inspection", "Previous graded inspection overall effectiveness", "Previous category of concern", "Previous quality of education", "Previous behaviour and attitudes", "Previous personal development", "Previous effectiveness of leadership and management", "Previous safeguarding is effective?"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Other Columns", {"Type of education"}, DimTypeofEducation, {"Type of education"}, "DimTypeofEducation", JoinKind.LeftOuter),
+				    #"Expanded DimTypeofEducation" = Table.ExpandTableColumn(#"Merged Queries", "DimTypeofEducation", {"KeyTypeofEducation"}, {"DimTypeofEducation.KeyTypeofEducation"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Expanded DimTypeofEducation",{{"DimTypeofEducation.KeyTypeofEducation", "KeyTypeofEducation"}}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Renamed Columns",{"Type of education"}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Removed Columns1", {"Sixth form"}, DimSixthForm, {"Sixth form"}, "DimSixthForm", JoinKind.LeftOuter),
+				    #"Expanded DimSixthForm" = Table.ExpandTableColumn(#"Merged Queries1", "DimSixthForm", {"KeySixthForm"}, {"DimSixthForm.KeySixthForm"}),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded DimSixthForm",{{"DimSixthForm.KeySixthForm", "KeySixthForm"}}),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Renamed Columns1",{"Sixth form"}),
+				    #"Merged Queries2" = Table.NestedJoin(#"Removed Columns2", {"Ofsted phase"}, DimOfstedPhease, {"Ofsted phase"}, "DimOfstedPhease", JoinKind.LeftOuter),
+				    #"Expanded DimOfstedPhease" = Table.ExpandTableColumn(#"Merged Queries2", "DimOfstedPhease", {"KeyOfstedPhase"}, {"DimOfstedPhease.KeyOfstedPhase"}),
+				    #"Renamed Columns2" = Table.RenameColumns(#"Expanded DimOfstedPhease",{{"DimOfstedPhease.KeyOfstedPhase", "KeyOfstedPhase"}}),
+				    #"Merged Queries3" = Table.NestedJoin(#"Renamed Columns2", {"Local authority"}, DimLA, {"Local authority"}, "DimLA", JoinKind.LeftOuter),
+				    #"Expanded DimLA" = Table.ExpandTableColumn(#"Merged Queries3", "DimLA", {"Key LA"}, {"DimLA.Key LA"}),
+				    #"Renamed Columns3" = Table.RenameColumns(#"Expanded DimLA",{{"DimLA.Key LA", "Key LA"}}),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Renamed Columns3",{"Ofsted region", "Region", "Local authority"}),
+				    #"Merged Queries4" = Table.NestedJoin(#"Removed Columns3", {"Parliamentary constituency"}, #"Dim Parliament", {"Parliamentary constituency"}, "Dim Parliament", JoinKind.LeftOuter),
+				    #"Expanded Dim Parliament" = Table.ExpandTableColumn(#"Merged Queries4", "Dim Parliament", {"Key Parliament"}, {"Key Parliament"}),
+				    #"Removed Columns4" = Table.RemoveColumns(#"Expanded Dim Parliament",{"Parliamentary constituency"})
+				in
+				    #"Removed Columns4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
