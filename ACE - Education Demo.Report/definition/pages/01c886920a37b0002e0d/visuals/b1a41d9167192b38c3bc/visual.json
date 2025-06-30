@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "b1a41d9167192b38c3bc",
+  "position": {
+    "x": 9.728555917481,
+    "y": 0,
+    "z": 0,
+    "height": 279.34853420195441,
+    "width": 1145.1900108577634,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "School name"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(OfstedFact.School name)",
+              "nativeQueryRef": "First School name"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

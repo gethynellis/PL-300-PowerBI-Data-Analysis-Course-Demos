@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "f601e27e38e358801664",
+  "position": {
+    "x": 9.9555555555555557,
+    "y": 0,
+    "z": 0,
+    "height": 332.8,
+    "width": 439.46666666666664,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimOfstedPhease"
+                    }
+                  },
+                  "Property": "Ofsted phase"
+                }
+              },
+              "queryRef": "DimOfstedPhease.Ofsted phase",
+              "nativeQueryRef": "Ofsted phase",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "OfstedFact"
+                        }
+                      },
+                      "Property": "Total number of pupils"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(OfstedFact.Total number of pupils)",
+              "nativeQueryRef": "Sum of Total number of pupils"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "OfstedFact"
+                      }
+                    },
+                    "Property": "Total number of pupils"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

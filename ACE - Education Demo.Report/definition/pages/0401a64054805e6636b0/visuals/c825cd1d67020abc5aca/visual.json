@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c825cd1d67020abc5aca",
+  "position": {
+    "x": 0,
+    "y": 90.769097071347872,
+    "z": 4000,
+    "height": 149.50204223516121,
+    "width": 309.6828017728339,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OfstedFact"
+                    }
+                  },
+                  "Property": "Avg Number of Students in Wolves"
+                }
+              },
+              "queryRef": "OfstedFact.Avg Number of Students in Wolves",
+              "nativeQueryRef": "Avg Number of Students in Wolves"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

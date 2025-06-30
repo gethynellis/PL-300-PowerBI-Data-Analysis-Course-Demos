@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6742ce034570125403d8",
+  "position": {
+    "x": 145.28785811732607,
+    "y": 274.9293315143247,
+    "z": 2000,
+    "height": 169.87503410641202,
+    "width": 438.09877216916783,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OfstedFact"
+                    }
+                  },
+                  "Property": "Total Pupils"
+                }
+              },
+              "queryRef": "OfstedFact.Total Pupils",
+              "nativeQueryRef": "Total Pupils"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

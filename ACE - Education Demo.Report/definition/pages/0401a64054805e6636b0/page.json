@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "0401a64054805e6636b0",
+  "displayName": "Maps",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "29a6c91d307d1e7959da",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimOfstedPhease"
+              }
+            },
+            "Property": "Ofsted phase"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "dab67e84ea32ee97b5b6",
+      "target": "8842032dc0299e70a4d3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dab67e84ea32ee97b5b6",
+      "target": "22e992505572482b2004",
+      "type": "DataFilter"
+    },
+    {
+      "source": "dab67e84ea32ee97b5b6",
+      "target": "c825cd1d67020abc5aca",
+      "type": "DataFilter"
+    }
+  ]
+}

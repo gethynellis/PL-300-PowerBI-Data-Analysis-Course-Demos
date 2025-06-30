@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "ACE - Education Demo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9b5e1952-1215-970d-4d0f-e29a91241da2"
+  }
+}

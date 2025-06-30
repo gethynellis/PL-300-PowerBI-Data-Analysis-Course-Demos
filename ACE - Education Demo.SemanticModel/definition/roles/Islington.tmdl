@@ -1,0 +1,7 @@
+role Islington
+	modelPermission: read
+
+	tablePermission DimLA = [Local authority] == "Islington"
+
+	annotation PBI_Id = f6c412eb99cd49b1ad51880b2a99eb58
+

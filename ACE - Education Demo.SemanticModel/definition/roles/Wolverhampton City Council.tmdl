@@ -1,0 +1,7 @@
+role 'Wolverhampton City Council'
+	modelPermission: read
+
+	tablePermission DimLA = [Local authority] == "Wolverhampton"
+
+	annotation PBI_Id = e08973d97c18456a94563c7dae550dcf
+

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "c89c577c54287150040e",
+  "position": {
+    "x": 537.97101449275362,
+    "y": 155.5406911928651,
+    "z": 1000,
+    "height": 383.85730211817167,
+    "width": 600.758082497213,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimLA"
+                    }
+                  },
+                  "Property": "Local authority"
+                }
+              },
+              "queryRef": "DimLA.Local authority",
+              "nativeQueryRef": "Local authority",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "OfstedFact"
+                    }
+                  },
+                  "Property": "Number Inspections"
+                }
+              },
+              "queryRef": "OfstedFact.Number Inspections",
+              "nativeQueryRef": "Number Inspections"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "OfstedFact"
+                  }
+                },
+                "Property": "Number Inspections"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

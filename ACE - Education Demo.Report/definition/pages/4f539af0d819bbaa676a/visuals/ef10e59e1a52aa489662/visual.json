@@ -1,0 +1,187 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "ef10e59e1a52aa489662",
+  "position": {
+    "x": 9.9555555555555557,
+    "y": 0,
+    "z": 0,
+    "height": 430.93333333333334,
+    "width": 675.55555555555554,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HDemo"
+                        }
+                      },
+                      "Hierarchy": "LocalAuthority"
+                    }
+                  },
+                  "Level": "Local authority"
+                }
+              },
+              "queryRef": "HDemo.LocalAuthority.Local authority",
+              "nativeQueryRef": "LocalAuthority Local authority",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HDemo"
+                        }
+                      },
+                      "Hierarchy": "LocalAuthority"
+                    }
+                  },
+                  "Level": "Parliamentary constituency"
+                }
+              },
+              "queryRef": "HDemo.LocalAuthority.Parliamentary constituency",
+              "nativeQueryRef": "LocalAuthority Parliamentary constituency",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HDemo"
+                        }
+                      },
+                      "Hierarchy": "LocalAuthority"
+                    }
+                  },
+                  "Level": "School name"
+                }
+              },
+              "queryRef": "HDemo.LocalAuthority.School name",
+              "nativeQueryRef": "LocalAuthority School name",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "HDemo"
+                        }
+                      },
+                      "Property": "Total number of pupils"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(HDemo.Total number of pupils)",
+              "nativeQueryRef": "Sum of Total number of pupils"
+            }
+          ]
+        }
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "HDemo.LocalAuthority.Local authority"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HDemo"
+                    }
+                  },
+                  "Property": "Local authority"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "HDemo.LocalAuthority.Parliamentary constituency"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "HDemo"
+                    }
+                  },
+                  "Property": "Parliamentary constituency"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "HDemo.LocalAuthority.School name"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Wolverhampton'"
+                  }
+                }
+              ],
+              "isToggled": true,
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Wolverhampton South East'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "drillFilterOtherVisuals": true
+  }
+}

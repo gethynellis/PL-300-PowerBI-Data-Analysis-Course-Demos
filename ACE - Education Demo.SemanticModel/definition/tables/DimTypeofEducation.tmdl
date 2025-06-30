@@ -1,0 +1,38 @@
+table DimTypeofEducation
+	lineageTag: 3cc8a1b8-03fa-4c03-8e2e-d9cc1225e5b2
+
+	column 'Type of education'
+		dataType: string
+		lineageTag: ee5c0a16-524b-46e7-9ea0-de88b10907a5
+		summarizeBy: none
+		sourceColumn: Type of education
+
+		annotation SummarizationSetBy = Automatic
+
+	column KeyTypeofEducation
+		dataType: int64
+		formatString: 0
+		lineageTag: 71f4e8bf-523b-4620-8b89-5066782d32c2
+		summarizeBy: none
+		sourceColumn: KeyTypeofEducation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimTypeofEducation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\GethynEllis\Desktop\Management_information_-_state-funded_schools_-_latest_inspections_as_at_31_Oct_2024.csv"),[Delimiter=",", Columns=74, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Web link", type text}, {"URN", Int64.Type}, {"LAESTAB", Int64.Type}, {"School name", type text}, {"Ofsted phase", type text}, {"Type of education", type text}, {"School open date", type text}, {"Admissions policy", type text}, {"Sixth form", type text}, {"Designated religious character", type text}, {"Religious ethos", type text}, {"Faith grouping", type text}, {"Ofsted region", type text}, {"Region", type text}, {"Local authority", type text}, {"Parliamentary constituency", type text}, {"Multi-academy trust UID", type text}, {"Multi-academy trust name", type text}, {"Academy sponsor UID", type text}, {"Academy sponsor name", type text}, {"Postcode", type text}, {"The income deprivation affecting children index (IDACI) quintile", type text}, {"Total number of pupils", Int64.Type}, {"Statutory lowest age", Int64.Type}, {"Statutory highest age", Int64.Type}, {"Latest ungraded inspection number since last graded inspection", type text}, {"Does the ungraded inspection relate to the URN of the current school?", type text}, {"URN at time of the ungraded inspection", type text}, {"LAESTAB at time of the ungraded inspection", type text}, {"School name at time of the ungraded inspection", type text}, {"School type at time of the ungraded inspection", type text}, {"Number of ungraded inspections since the last graded inspection", type text}, {"Date of latest ungraded inspection", type text}, {"Ungraded inspection publication date", type text}, {"Did the latest ungraded inspection convert to a graded inspection?", type text}, {"Ungraded inspection overall outcome", type text}, {"Number of monitoring and urgent inspections since last graded inspection", type text}, {"Inspection number of latest graded inspection", type text}, {"Inspection type", type text}, {"Inspection type grouping", type text}, {"Event type grouping", type text}, {"Inspection start date", type date}, {"Publication date", type date}, {"Does the latest graded inspection relate to the URN of the current school?", type text}, {"URN at time of latest graded inspection", Int64.Type}, {"LAESTAB at time of latest graded inspection", Int64.Type}, {"School name at time of latest graded inspection", type text}, {"School type at time of latest graded inspection", type text}, {"Overall effectiveness", Int64.Type}, {"Category of concern", type text}, {"Quality of education", Int64.Type}, {"Behaviour and attitudes", Int64.Type}, {"Personal development", Int64.Type}, {"Effectiveness of leadership and management", Int64.Type}, {"Safeguarding is effective?", type text}, {"Early years provision (where applicable)", Int64.Type}, {"Sixth form provision (where applicable)", Int64.Type}, {"Previous graded inspection number", type text}, {"Previous inspection start date", type date}, {"Previous publication date", type date}, {"Does the previous graded inspection relate to the URN of the current school?", type text}, {"URN at time of previous graded inspection", Int64.Type}, {"LAESTAB at time of previous graded inspection", Int64.Type}, {"School name at time of previous graded inspection", type text}, {"School type at time of previous graded inspection", type text}, {"Previous graded inspection overall effectiveness", Int64.Type}, {"Previous category of concern", type text}, {"Previous quality of education", Int64.Type}, {"Previous behaviour and attitudes", Int64.Type}, {"Previous personal development", Int64.Type}, {"Previous effectiveness of leadership and management", Int64.Type}, {"Previous safeguarding is effective?", type text}, {"Previous early years provision (where applicable)", Int64.Type}, {"Previous sixth form provision (where applicable)", Int64.Type}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Changed Type",{"Type of education"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "KeyTypeofEducation"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

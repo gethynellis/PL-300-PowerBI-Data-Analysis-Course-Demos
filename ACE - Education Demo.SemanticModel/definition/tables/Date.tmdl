@@ -1,0 +1,32 @@
+table Date
+	lineageTag: 539ecdcd-6519-491d-8644-a9e6c792111e
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: d33dee77-8683-486f-82f7-2aa53a828023
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = "CY" & YEAR('Date'[Date])
+		lineageTag: c2acc145-200f-4220-8bdf-c97e00ca0c46
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = FORMAT('Date'[Date], "YYYY-MM")
+		lineageTag: ee91930c-74df-400b-8a00-44589d78444f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source = CALENDARAUTO()
+
+	annotation PBI_Id = 940bed12e9eb490aab95bb013059a217
+

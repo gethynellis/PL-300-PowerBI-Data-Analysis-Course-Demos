@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "f0eaa2a6cea6676f49c4",
+  "position": {
+    "x": 610.20900409276942,
+    "y": 274.9293315143247,
+    "z": 3000,
+    "height": 169.87503410641202,
+    "width": 438.09877216916783,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimOfstedRatings"
+                        }
+                      },
+                      "Property": "Ofsted Grade Rating"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DimOfstedRatings.Ofsted Grade Rating)",
+              "nativeQueryRef": "Ofsted Grade Rating"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
