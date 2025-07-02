@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Stackoverflow - example"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "09d68898-ac61-ad5b-4d97-55d8a10f63cb"
+  }
+}

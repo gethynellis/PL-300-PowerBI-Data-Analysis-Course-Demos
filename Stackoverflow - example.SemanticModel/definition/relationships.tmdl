@@ -1,0 +1,5 @@
+relationship 0426b46c-5940-4539-937c-98bfbbb06082
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Users.year_month
+	toColumn: LocalDateTable_a375f8ef-e022-4634-9ac6-124d50c89bdf.Date
+
