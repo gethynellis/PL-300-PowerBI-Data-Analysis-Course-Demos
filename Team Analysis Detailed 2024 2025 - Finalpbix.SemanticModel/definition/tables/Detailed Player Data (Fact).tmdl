@@ -40,11 +40,6 @@ table 'Detailed Player Data (Fact)'
 		formatString: 0
 		lineageTag: f2b23a71-378d-43b0-9786-6376949ded68
 
-	measure 'Average Liverpool Points' = CALCULATE(AVERAGE('Detailed Player Data (Fact)'[Total Points]), 'Club Data (DIM)'[Team name] = "Liverpool")
-		lineageTag: 2bf445f6-670f-429c-9578-3b05b7c57bc8
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Total Point Previous Month' = CALCULATE(SUM('Detailed Player Data (Fact)'[Total Points]), PREVIOUSMONTH(DateDim[Date]))
 		formatString: 0
 		lineageTag: c616961b-ab65-4ffa-a502-fecd7633e784
@@ -150,6 +145,21 @@ table 'Detailed Player Data (Fact)'
 			```
 		formatString: 0
 		lineageTag: 4bf1f806-992b-44d4-8e99-f4b14831d7e9
+
+	measure 'Avg Save Per Game' = AVERAGE('Detailed Player Data (Fact)'[saves])
+		lineageTag: 0f11bc39-24ad-44fc-8deb-dcd239b9467b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Goals Conceded' = AVERAGE('Detailed Player Data (Fact)'[Goals conceded])
+		lineageTag: bc4c6ed0-921e-4d93-a4e8-33360019250a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg xgConceded per Game' = AVERAGE('Detailed Player Data (Fact)'[expected_goals_conceded])
+		lineageTag: 5c05d94d-6f2c-4ac5-8b93-5b8ef82bb3f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Player
 		dataType: int64
