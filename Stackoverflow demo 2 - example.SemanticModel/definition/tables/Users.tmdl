@@ -1,0 +1,56 @@
+table Users
+	lineageTag: addf537c-c240-464b-bf00-d8e3da847b89
+
+	measure 'Running Total Users' = ```
+			
+			CALCULATE(
+			    SUM(users[Number of Users]),
+			    FILTER(
+			        ALL(users[year_month]),
+			        users[year_month] <= MAX(users[year_month])
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: eeac32bb-83da-43d9-a114-501cafa47c47
+
+	column 'Number of Users'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2bea3fd4-f146-45b5-a584-c988508d0536
+		summarizeBy: sum
+		sourceColumn: Number of Users
+
+		annotation SummarizationSetBy = User
+
+	column year_month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 89099255-c220-4f9d-9ed0-66540fcdbd2f
+		summarizeBy: none
+		sourceColumn: year_month
+
+		variation Variation
+			isDefault
+			relationship: 0426b46c-5940-4539-937c-98bfbbb06082
+			defaultHierarchy: LocalDateTable_a375f8ef-e022-4634-9ac6-124d50c89bdf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Users = m
+		mode: import
+		source =
+				let
+				    Source = Value.NativeQuery(PostgreSQL.Database("localhost", "stackoverflow_large"), "SELECT #(lf)    DATE_TRUNC('month', u.CreationDate)::date AS year_month,#(lf)    COUNT(*) AS records#(lf)FROM public.Users u#(lf)GROUP BY year_month#(lf)ORDER BY year_month", null, [EnableFolding=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"year_month", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"records", "Number of Users"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

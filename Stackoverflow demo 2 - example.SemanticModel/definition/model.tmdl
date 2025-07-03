@@ -1,0 +1,20 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Users"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.1155.0 (25.06)+46435b07013d2a234d7fd007083a9e70b8e79f1c
+
+ref table Users
+ref table DateTableTemplate_0c61a2c7-b3c7-43ad-b693-d646e6c64e70
+ref table LocalDateTable_a375f8ef-e022-4634-9ac6-124d50c89bdf
+
+ref cultureInfo en-GB
+
