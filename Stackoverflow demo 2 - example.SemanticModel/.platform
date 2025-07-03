@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Stackoverflow demo 2 - example"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2bc54485-4783-995e-4075-f78d87a21a18"
+  }
+}

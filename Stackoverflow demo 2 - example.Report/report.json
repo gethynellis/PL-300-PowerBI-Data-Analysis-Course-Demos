@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.65\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "8fd782801414a6b61a5b",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4c90215a48a0707a5e61\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16.842105263157897,\"y\":59.71291866028709,\"z\":1000,\"width\":300.0956937799043,\"height\":300.0956937799043,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Query1.records)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"q\",\"Entity\":\"Users\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"Number of Users\"}},\"Function\":0},\"Name\":\"Sum(Query1.records)\",\"NativeReferenceName\":\"Sum of Number of Users\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"Number of Users\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 300.10,
+          "width": 300.10,
+          "x": 16.84,
+          "y": 59.71,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"8a3e4d664806a8d2e169\",\"layouts\":[{\"id\":0,\"position\":{\"x\":414.66424682395643,\"y\":59.23774954627949,\"z\":0,\"width\":836.2976406533575,\"height\":598.1851179673321,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Query1.year_month.Variation.Date Hierarchy.Year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Users.Number of Users)\"}],\"Y2\":[{\"queryRef\":\"select\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"q\",\"Entity\":\"Users\",\"Type\":0}],\"Select\":[{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Name\":\"Variation\",\"Property\":\"year_month\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"},\"Name\":\"Query1.year_month.Variation.Date Hierarchy.Year\",\"NativeReferenceName\":\"year_month Year\"},{\"NativeVisualCalculation\":{\"Language\":\"dax\",\"Expression\":\"RUNNINGSUM([Sum of Number of Users])\",\"Name\":\"Running Total Users\"},\"Name\":\"select\",\"NativeReferenceName\":\"Running Total Users\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"Number of Users\"}},\"Function\":0},\"Name\":\"Sum(Users.Number of Users)\",\"NativeReferenceName\":\"Sum of Number of Users\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"PropertyVariationSource\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Name\":\"Variation\",\"Property\":\"year_month\"}},\"Hierarchy\":\"Date Hierarchy\"}},\"Level\":\"Year\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"alignZeros\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"' Number of Users and Running Total Users by Year'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 598.19,
+          "width": 836.30,
+          "x": 414.66,
+          "y": 59.24,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
